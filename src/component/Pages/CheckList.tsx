@@ -1,11 +1,5 @@
 import React from "react";
 
-
-
-
-
-
-
 function CheckList() {
   return (
     <div className="CheckList">

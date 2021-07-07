@@ -1,4 +1,8 @@
 import "./sidebar.css"
+import {
+  AiFillSetting, AiOutlineUnorderedList
+  , AiFillBank
+} from "react-icons/ai";
 
 
 
@@ -7,54 +11,43 @@ function SideBar() {
 
   return (
 
-    <div className="Login-page" style={{ marginTop: "200px" }}>
-      <h1>Sidebar</h1>
-       {/* <h1>
-          <div className="d-flex flex-column flex-shrink-0 bg-light" >
-    <a href="/" className="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
-      <span className="visually-hidden">Icon-only</span>
+    <div className="Login-page">
+
+      <div className="flex-shrink-0 p-3 bg-info text-secondary" style={{width: "10em" , height:"100vh"}}>
+    <a href="/" className="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom" style={{ marginTop: "10em" }}>
     </a>
-    <ul className="nav nav-pills nav-flush flex-column mb-auto text-center">
-      <li className="nav-item">
-        <a href="#" className="nav-link active py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
-
-        </a>
+    <ul className="list-unstyled ps-0" >
+      <li className="mb-1">
+        <button className="btn btn-toggle align-items-center rounded collapsed text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          <AiFillBank/> <h6>Corporate</h6>
+        </button>
+        <div className="collapse show" id="home-collapse">
+          <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          </ul>
+        </div>
       </li>
-      <li>
-        <a href="#" className="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
-
-        </a>
+      <li className="mb-1">
+        <button className="btn btn-toggle text-white align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+              <AiOutlineUnorderedList />
+              <h6>Checklist</h6>
+        </button>
+        <div className="collapse" id="dashboard-collapse">
+        </div>
       </li>
-      <li>
-        <a href="#" className="nav-link py-3 border-bottom" title="Orders" data-bs-toggle="tooltip" data-bs-placement="right">
-
-        </a>
+      <li className="mb-1">
+        <button className="btn btn-toggle text-white align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+              <AiFillSetting />
+              <h6>Settings</h6>
+        </button>
+        <div className="collapse" id="orders-collapse">
+        </div>
       </li>
-      <li>
-        <a href="#" className="nav-link py-3 border-bottom" title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
-
-        </a>
-      </li>
-      <li>
-        <a href="#" className="nav-link py-3 border-bottom" title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
-          
-        </a>
+      <li className="border-top my-3"></li>
+      <li className="mb-1">
       </li>
     </ul>
-    <div className="dropdown border-top">
-      <a href="#" className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-      </a>
-      <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-        <li><a className="dropdown-item" href="#">New project...</a></li>
-        <li><a className="dropdown-item" href="#">Settings</a></li>
-        <li><a className="dropdown-item" href="#">Profile</a></li>
-        <li><hr className="dropdown-divider"/></li>
-        <li><a className="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div>
   </div>
-           </h1> */}
-      </div>
+  </div>
 
   
 
