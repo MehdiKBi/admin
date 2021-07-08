@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {motion} from "framer-motion"
+import Pagination from "../pagination/pagination";
 
 function Corporate() {
   const [corporateData, setCorporateData] = useState([]);
@@ -15,7 +16,7 @@ function Corporate() {
   }, []);
 
   return (
-    <div className="Corporate text-center shadow-lg p-3 mb-5 bg-body rounded">
+    <div className="Corporate text-center">
       <div>
         <table className="table">
           <thead>
@@ -31,12 +32,13 @@ function Corporate() {
                 animate={{opacity:[0.40,1]}}
               >
                 <td key={y.name}>{y.name}</td>
-                <td key={y.domain}>{y.domain}</td>
+                <td key={y.dodomainmain}>{y.domain}</td>
                 <td key={y.mailRestrictions}>{y.mailRestrictions}</td>
               </motion.tr>
             ))}
           </tbody>
         </table>
+        <Pagination/>
       </div>
     </div>
   );
