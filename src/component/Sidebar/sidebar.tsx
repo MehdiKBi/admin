@@ -23,7 +23,7 @@ function SideBar() {
               aria-expanded="true"
             >
               <Link className="router-link" to="/corporate">
-                <motion.div whileHover={{ rotate: 360, scale: 2.1 }}
+                <motion.div whileHover={{scale: 2.2 }}
                   animate={{scale:2}}
                 >
                   <AiFillBank />
@@ -42,7 +42,7 @@ function SideBar() {
               aria-expanded="false"
             >
               <Link className="router-link" to="/checklist">
-                <motion.div whileHover={{ rotate: 360, scale: 2 }}
+                <motion.div whileHover={{ scale: 2.2 }}
                   animate={{scale:2}}
                 >
                   <AiOutlineUnorderedList />
@@ -59,7 +59,7 @@ function SideBar() {
               aria-expanded="false"
             >
               <Link className="router-link" to="/settings">
-                <motion.div whileHover={{ rotate: 360, scale: 2 }}
+                <motion.div whileHover={{scale: 2.2 }}
                   animate={{scale:2}}
                 >
                   <AiFillSetting />
