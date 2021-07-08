@@ -2,9 +2,8 @@
 import React from "react";
 function Corporate() {
   return (
-    <div className="Corporate">
-      <div className="login-Page-box">
-      </div>
+    <div className="Corporate bg-danger text-center" >
+      <p>This is corporate page</p>
     </div>
   );
 }

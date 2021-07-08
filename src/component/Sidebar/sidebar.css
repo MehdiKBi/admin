@@ -1,0 +1,8 @@
+.sidebar-box{
+    position: fixed;
+}
+
+.router-link{
+    text-decoration: none;
+    color: white;
+}

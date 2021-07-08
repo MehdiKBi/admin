@@ -25,7 +25,7 @@ function LoginPage() {
 
 
   return (
-      <div className="Login-page" style={{marginTop:"200px"}}>
+      <div className="Login-page text-center" >
      <form>
         <div className="mb-3">
           <label className="form-label">Email address</label>

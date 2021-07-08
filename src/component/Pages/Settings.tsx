@@ -2,11 +2,8 @@ import React from "react";
 
 function Settings() {
   return (
-    <div className="Settings">
-      <div className="login-Page-box">
-       
-      </div>
-   
+    <div className="Settings bg-primary text-center" >
+      <p>This is Settings page</p>
     </div>
   );
 }
