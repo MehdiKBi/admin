@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {motion} from "framer-motion"
 
 function CheckList() {
   const [checklisteData, setChecklistData] = useState([]);
@@ -28,11 +29,13 @@ function CheckList() {
           </thead>
           <tbody>
           {checklisteData.map((y: any) => (
-              <tr>
+            <motion.tr
+            animate={{opacity:[0.40,1]}}
+            >
                 <td key={y.partner}>{y.partner}</td>
                 <td key={y.offer}>{y.offer}</td>
                 <td key={y.status}>{y.status}</td>
-              </tr>
+              </motion.tr>
             ))}
           </tbody>
         </table>

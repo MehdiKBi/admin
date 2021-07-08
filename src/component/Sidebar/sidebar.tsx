@@ -1,4 +1,5 @@
 import "./sidebar.css";
+import { motion } from "framer-motion";
 import {
   AiFillSetting,
   AiOutlineUnorderedList,
@@ -22,7 +23,9 @@ function SideBar() {
               aria-expanded="true"
             >
               <Link className="router-link" to="/corporate">
-                <AiFillBank />
+                <motion.div whileHover={{ rotate: 360,scale:2 }}>
+                  <AiFillBank />
+                </motion.div>
                 <h6>Corporate</h6>
               </Link>
             </button>
@@ -38,8 +41,9 @@ function SideBar() {
               aria-expanded="false"
             >
               <Link className="router-link" to="/checklist">
-                {" "}
-                <AiOutlineUnorderedList />
+                <motion.div whileHover={{ rotate: 360,scale:2 }}>
+                  <AiOutlineUnorderedList />
+                </motion.div>
                 <h6>Checklist</h6>
               </Link>
             </button>
@@ -53,9 +57,10 @@ function SideBar() {
               aria-expanded="false"
             >
               <Link className="router-link" to="/settings">
-                {" "}
-                <AiFillSetting />
-                <h6>Settings</h6>
+                <motion.div whileHover={{ rotate: 360,scale:2 }}>
+                  <AiFillSetting />
+                </motion.div>
+                <h6>settings</h6>
               </Link>
             </button>
             <div className="collapse" id="orders-collapse"></div>

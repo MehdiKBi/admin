@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Corporate from "./component/Pages/Corporate";
 import CheckList from "./component/Pages/CheckList";
 import Settings from "./component/Pages/Settings";
-// import LoginFromik from "./component/Login/LoginFormik";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
             <div className="login ">
               <div className="inner-login shadow-lg p-3 mb-5 bg-body rounded">
                 <LoginPage />
-                {/* <LoginFromik/> */}
               </div>
             </div>
           </Route>

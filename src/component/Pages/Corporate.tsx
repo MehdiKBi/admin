@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {motion} from "framer-motion"
 
 function Corporate() {
   const [corporateData, setCorporateData] = useState([]);
@@ -26,11 +27,13 @@ function Corporate() {
           </thead>
           <tbody>
             {corporateData.map((y: any) => (
-              <tr>
+              <motion.tr
+                animate={{opacity:[0.40,1]}}
+              >
                 <td key={y.name}>{y.name}</td>
                 <td key={y.domain}>{y.domain}</td>
                 <td key={y.mailRestrictions}>{y.mailRestrictions}</td>
-              </tr>
+              </motion.tr>
             ))}
           </tbody>
         </table>
