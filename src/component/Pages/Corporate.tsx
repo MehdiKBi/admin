@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-
 function Corporate() {
   const [corporateData, setCorporateData] = useState([]);
   useEffect(() => {
@@ -16,28 +15,26 @@ function Corporate() {
 
   return (
     <div className="Corporate text-center shadow-lg p-3 mb-5 bg-body rounded">
-     
-        <div>
-          <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">name</th>
-            <th scope="col">domain</th>
-            <th scope="col">secureCodeCheck</th>
-          </tr>
-        </thead>
-          <tbody>
-          {corporateData.map((y: any) => (
-          <tr>
-            <td>{y.name}</td>
-            <td>{y.domain}</td>
-            <td>{y.secureCodeCheck }</td>
+      <div>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Domain</th>
+              <th scope="col">Mail restrictions</th>
             </tr>
-             ))}
-        </tbody>
-      </table>
-        </div>
-     
+          </thead>
+          <tbody>
+            {corporateData.map((y: any) => (
+              <tr>
+                <td key={y.name}>{y.name}</td>
+                <td key={y.domain}>{y.domain}</td>
+                <td key={y.mailRestrictions}>{y.mailRestrictions}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

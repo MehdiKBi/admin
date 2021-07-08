@@ -1,16 +1,35 @@
 import React from "react";
-import { Form, Field, ErrorMessage } from "formik";
+import { Form, Field, ErrorMessage, useFormik } from "formik";
 
 function LoginFromik() {
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+
+   onSubmit: values => {
+     alert(JSON.stringify(values, null, 2));
+   },
+ });
   return (
-    <Form>
-      <Field type="email" name="email" />
-      <ErrorMessage name="email" component="div" />
-      <Field type="password" name="password" />
-      <ErrorMessage name="password" component="div" />
-      <button type="submit" disabled>
-      </button>
-    </Form>
+    <div>
+    
+   return (
+    <form onSubmit={formik.handleSubmit}>
+       <label htmlFor="email">Email Address</label>
+       <input
+         id="email"
+         name="email"
+         type="email"
+         onChange={formik.handleChange}
+         value={formik.values.email}
+       />
+ 
+       <button type="submit">Submit</button>
+     </form>
+  </div>
   );
 }
+
 export default LoginFromik;

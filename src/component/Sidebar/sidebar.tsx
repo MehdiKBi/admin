@@ -11,9 +11,9 @@ function SideBar() {
     <div className="sidebar-box">
       <div
         className="flex-shrink-0 p-3 bg-warning text-secondary"
-        style={{ width: "10em", height: "100vh" }}
+        style={{ width: "8em", height: "100vh" }}
       >
-        <ul className="list-unstyled ps-0">
+        <ul className="list-unstyled ps-0 mt-5">
           <li className="mb-1">
             <button
               className="btn btn-toggle align-items-center rounded collapsed text-white"

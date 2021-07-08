@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Corporate from "./component/Pages/Corporate";
 import CheckList from "./component/Pages/CheckList";
 import Settings from "./component/Pages/Settings";
-import LoginFromik from "./component/Login/LoginFormik";
+// import LoginFromik from "./component/Login/LoginFormik";
 
 function App() {
   return (
@@ -22,22 +22,19 @@ function App() {
               </div>
             </div>
           </Route>
-
-          <Route exact path="/corporate">
-            <div className="login">
-              <div className="inner-login shadow-lg p-3 mb-5 bg-body rounded">
+          <div className="corporate ">
+            <div className="inner-corporate shadow-lg p-3 mb-5 bg-body rounded">
+              <Route exact path="/corporate">
                 <Corporate />
-              </div>
+              </Route>
+              <Route exact path="/checklist">
+                <CheckList />
+              </Route>
+              <Route exact path="/settings">
+                <Settings />
+              </Route>
             </div>
-          </Route>
-
-          <Route exact path="/checklist">
-            <CheckList />
-          </Route>
-
-          <Route exact path="/settings">
-            <Settings />
-          </Route>
+          </div>
         </Switch>
       </div>
     </Router>
