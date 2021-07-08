@@ -14,8 +14,8 @@ function App() {
         <SideBar />
         <Switch>
           <Route exact path="/login">
-            <div className="login">
-              <div className="inner-login bg-warning">
+            <div className="login ">
+              <div className="inner-login shadow-lg p-3 mb-5 bg-body rounded">
                 <LoginPage />
               </div>
             </div>

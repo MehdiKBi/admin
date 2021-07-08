@@ -25,7 +25,7 @@ function LoginPage() {
 
 
   return (
-      <div className="Login-page text-center" >
+      <div className="Login-page text-center mt-5" >
      <form>
         <div className="mb-3">
           <label className="form-label">Email address</label>
