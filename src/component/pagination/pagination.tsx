@@ -1,9 +1,10 @@
 import React from "react";
 
+
 function Pagination() {
 
   return (
-    <div>
+    <div className="mt-5 text-end">
     <nav aria-label="Page navigation example">
       <ul className="pagination">
         <li className="page-item">
