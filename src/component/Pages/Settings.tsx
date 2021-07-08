@@ -2,8 +2,8 @@ import React from "react";
 
 function Settings() {
   return (
-    <div className="Settings bg-danger text-center" >
-      <p>_________</p>
+    <div className="Settings shadow-lg p-3 mb-5 bg-body rounded text-center" >
+      <p></p>
     </div>
   );
 }

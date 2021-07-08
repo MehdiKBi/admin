@@ -3,7 +3,7 @@ import ChecklistTable from "./ChecklistTable";
 
 function CheckList() {
   return (
-    <div className="checkist bg-primary text-center">
+    <div className="checkist shadow-lg p-3 mb-5 bg-body rounded text-center">
         <ChecklistTable/>
     </div>
   );
