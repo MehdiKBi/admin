@@ -1,11 +1,10 @@
 import React from "react";
+import ChecklistTable from "./ChecklistTable";
 
 function CheckList() {
   return (
-    <div className="CheckList bg-info text-center">
-      
-      <p>this is CheckList page</p>
-   
+    <div className="checkist bg-primary text-center">
+        <ChecklistTable/>
     </div>
   );
 }

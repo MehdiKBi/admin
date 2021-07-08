@@ -13,11 +13,6 @@ function SideBar() {
         className="flex-shrink-0 p-3 bg-warning text-secondary"
         style={{ width: "10em", height: "100vh" }}
       >
-        <a
-          href="/"
-          className="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom"
-          style={{ marginTop: "1em" }}
-        ></a>
         <ul className="list-unstyled ps-0">
           <li className="mb-1">
             <button
