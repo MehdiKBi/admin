@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Pagination from "../pagination/pagination";
-
+import ChecklistTable from "./ChecklistTable";
+import ChecklistTabletw from "./ChecklistTabletw";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PaginationChecklist from "../pagination/paginationChecklist";
 
 function CheckList() {
   const [checklisteData, setChecklistData] = useState([]);
+  const [checklisteDatatw, setChecklistDatatw] = useState([]);
+
   useEffect(() => {
     fetch(
       "https://api-dev.corplife.at/v0/corplife/checklists?skip=0&sortBy=name&limit=16"
@@ -13,33 +17,23 @@ function CheckList() {
       })
       .then((data) => {
         console.log(data.data);
-        setChecklistData(data.data.slice(0,8));
+        setChecklistData(data.data.slice(0, 8));
+        setChecklistDatatw(data.data.slice(9, 18));        
       });
-  },[]);
-const x = "i am p"
+  }, []);
   return (
     <div>
-      <div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">partner</th>
-              <th scope="col">offer</th>
-              <th scope="col">status</th>
-            </tr>
-          </thead>
-          <tbody>
-          {checklisteData.map((y: any) => (
-            <tr>
-                <td key={y.partner}>{y.partner}</td>
-                <td key={y.offer}>{y.offer}</td>
-              <td key={y.status}>{y.status}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <Pagination/>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/checklist">
+            <ChecklistTable checklisteData={checklisteData} />
+          </Route>
+          <Route path="/p2">
+          <ChecklistTabletw checklisteDatatw={checklisteDatatw} />
+          </Route>
+        </Switch>
+      <PaginationChecklist />
+      </Router>
     </div>
   );
 }
