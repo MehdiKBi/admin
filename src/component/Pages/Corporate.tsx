@@ -4,18 +4,21 @@ import CorporateTable from "./CorporateTable";
 import CorporateTabletw from "./CorporateTabletw";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+
 function Corporate() {
   const [corporateData, setCorporateData] = useState([]);
   const [corporateDatatw, setCorporateDatatw] = useState([]);
 
+
+
   useEffect(() => {
-    fetch("https://api.corplife.at/v0/corporates?limit=24&skip=0")
+    fetch("https://api.corplife.at/v0/corporates?limit=30&skip=0")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         setCorporateData(data.data.slice(0, 8));
-        setCorporateDatatw(data.data.slice(9, 16));
+        setCorporateDatatw(data.data.slice(9, 17));
       });
   }, []);
 
@@ -27,7 +30,7 @@ function Corporate() {
             <Route exact path="/corporate">
               <CorporateTable corporateData={corporateData} />
             </Route>
-            <Route  path="/corporate/page2" >
+            <Route exact path="/page2">
               <CorporateTabletw  corporateDatatw={corporateDatatw} />
             </Route>
           </Switch>

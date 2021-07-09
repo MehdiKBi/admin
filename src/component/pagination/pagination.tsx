@@ -14,7 +14,7 @@ function Pagination() {
             </Link>
           </li>
           <li className="page-item">
-            <Link className="page-link text-dark" to="corporate/page2">
+            <Link className="page-link text-dark" to="/page2">
               <BsFillCaretRightFill />
             </Link>
           </li>

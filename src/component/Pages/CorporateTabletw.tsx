@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"
+
 
 
 
@@ -20,13 +20,12 @@ function CorporateTable({corporateDatatw}:customProps) {
           </thead>
           <tbody>
             {corporateDatatw.map((y: any) => (
-              <motion.tr
-                animate={{opacity:[0.40,1]}}
+              <tr
               >
                 <td key={y.name}>{y.name}</td>
                 <td key={y.dodomainmain}>{y.domain}</td>
                 <td key={y.mailRestrictions}>{y.mailRestrictions}</td>
-              </motion.tr>
+              </tr>
             ))}
           </tbody>
         </table>
