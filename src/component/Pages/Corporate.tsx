@@ -1,44 +1,38 @@
 import React, { useEffect, useState } from "react";
-import {motion} from "framer-motion"
 import Pagination from "../pagination/pagination";
+import CorporateTable from "./CorporateTable";
+import CorporateTabletw from "./CorporateTabletw";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Corporate() {
   const [corporateData, setCorporateData] = useState([]);
+  const [corporateDatatw, setCorporateDatatw] = useState([]);
+
   useEffect(() => {
-    fetch("https://api.corplife.at/v0/corporates?limit=8&skip=0")
+    fetch("https://api.corplife.at/v0/corporates?limit=24&skip=0")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data.data);
-        setCorporateData(data.data);
+        setCorporateData(data.data.slice(0, 8));
+        setCorporateDatatw(data.data.slice(9, 16));
       });
   }, []);
 
   return (
     <div className="Corporate text-center">
       <div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Domain</th>
-              <th scope="col">Mail restrictions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {corporateData.map((y: any) => (
-              <motion.tr
-                animate={{opacity:[0.40,1]}}
-              >
-                <td key={y.name}>{y.name}</td>
-                <td key={y.dodomainmain}>{y.domain}</td>
-                <td key={y.mailRestrictions}>{y.mailRestrictions}</td>
-              </motion.tr>
-            ))}
-          </tbody>
-        </table>
-        <Pagination/>
+        <Router>
+          <Switch>
+            <Route exact path="/corporate">
+              <CorporateTable corporateData={corporateData} />
+            </Route>
+            <Route  path="/corporate/page2" >
+              <CorporateTabletw  corporateDatatw={corporateDatatw} />
+            </Route>
+          </Switch>
+        <Pagination />
+        </Router>
       </div>
     </div>
   );

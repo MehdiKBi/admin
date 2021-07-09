@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion"
 import Pagination from "../pagination/pagination";
+
 
 function CheckList() {
   const [checklisteData, setChecklistData] = useState([]);
@@ -15,8 +16,8 @@ function CheckList() {
         console.log(data.data);
         setChecklistData(data.data);
       });
-  }, []);
-
+  },[]);
+const x = "i am p"
   return (
     <div>
       <div>
@@ -29,16 +30,18 @@ function CheckList() {
             </tr>
           </thead>
           <tbody>
-            {checklisteData.map((y: any) => (
-              <motion.tr animate={{ opacity: [0.4, 1] }}>
+          {checklisteData.map((y: any) => (
+            <motion.tr
+            animate={{opacity:[0.40,1]}}
+            >
                 <td key={y.partner}>{y.partner}</td>
                 <td key={y.offer}>{y.offer}</td>
-                <td key={y.status}>{y.status}</td>
+              <td key={y.status}>{y.status}</td>
               </motion.tr>
             ))}
           </tbody>
         </table>
-        <Pagination />
+        <Pagination/>
       </div>
     </div>
   );

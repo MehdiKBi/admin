@@ -9,13 +9,13 @@ function Pagination() {
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
-            <Link className="page-link text-dark" to="#">
-            <BsFillCaretLeftFill/> 
+            <Link className="page-link text-dark" to="/corporate">
+              <BsFillCaretLeftFill />
             </Link>
           </li>
           <li className="page-item">
-            <Link className="page-link text-dark" to="#">
-               <BsFillCaretRightFill/>
+            <Link className="page-link text-dark" to="corporate/page2">
+              <BsFillCaretRightFill />
             </Link>
           </li>
         </ul>
