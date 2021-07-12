@@ -12,7 +12,7 @@ export const getcorporateData = (corporate: any) => async (dispatch: Dispatch<co
   
 try {
   const response = await axios.get(fulUrl)
-  // console.log(response.data.data);
+  console.log(response.data);
   dispatch({
     type: GET_CORPORATE,
     payload: response.data.data

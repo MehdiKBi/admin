@@ -43,11 +43,9 @@ function Corporate(corporatestat: any) {
   useEffect(() => {
     dispatch(getcorporateData(corporatestat));
     const toMap = corporatestat.corporatestat.corporate.slice(0, 7);
-    const toMapTwo = corporatestat.corporatestat.corporate.slice(8,16);
+    const toMapTwo = corporatestat.corporatestat.corporate.slice(8, 16);
     setCorporateData(toMap)
     setCorporateDatatw(toMapTwo)
-
-
   },[]);
 
 
