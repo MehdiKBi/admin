@@ -4,35 +4,42 @@ import CorporateTable from "./CorporateTable";
 import CorporateTabletw from "./CorporateTabletw";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {connect, useDispatch} from "react-redux"
-import { corporateAction } from "../redux/action/action";
+import { corporateAction, newCorporateAction ,getcorporateData } from "../redux/action/action";
 import { RootState } from "../redux/rootReducers/rootReducers";
 
 
-function Corporate(xxx:any ) {
+function Corporate(corporatestat:any ) {
   const [corporateData, setCorporateData] = useState([]);
   const [corporateDatatw, setCorporateDatatw] = useState([]);
+  const dispatch = useDispatch()
+  
+  // useEffect(() => {
+  //   fetch("https://api.corplife.at/v0/corporates?limit=30&skip=0")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setCorporateData(data.data.slice(0, 8));
+  //       setCorporateDatatw(data.data.slice(9, 17));        
+  //     });
+  // }, []);
 
-const dispatch = useDispatch()
   useEffect(() => {
-    fetch("https://api.corplife.at/v0/corporates?limit=30&skip=0")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setCorporateData(data.data.slice(0, 8));
-        setCorporateDatatw(data.data.slice(9, 17));        
-      });
-  }, []);
-  useEffect(() => {
-    dispatch(corporateAction(corporateData))
-  },[])
+    dispatch(getcorporateData(corporatestat))
+  }, [])
+  
+
 
   useEffect(() => {
     corporateData.forEach((item: any, index:any , array:any) =>
       console.log("item :", item)
     )
-  },[]);
-  console.log("xxx", xxx);
+  }, []);
+
+  
+
+
+
   
 
   return (
@@ -56,7 +63,7 @@ const dispatch = useDispatch()
 
 const MapStateProps = (state: RootState) => {
   return {
-    xxx: state.corporate
+    corporatestat: state.corporate
     
   }
 }

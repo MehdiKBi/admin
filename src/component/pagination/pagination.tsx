@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { BsFillCaretRightFill, BsFillCaretLeftFill } from "react-icons/bs";
 
+
+
 function Pagination() {
+
+  // const { id } = useParams()
+  
+  
+
   return (
     <div className="mt-5 text-end">
       <nav aria-label="Page navigation example">

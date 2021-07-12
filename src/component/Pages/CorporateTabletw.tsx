@@ -4,10 +4,12 @@ import React from "react";
 
 
 interface customProps {
-  corporateDatatw:any
+  corporateDatatw: any,
 }
 
-function CorporateTable({corporateDatatw}:customProps) {
+function CorporateTable({ corporateDatatw }: customProps) {
+
+  
   return (
     <div>
        <table className="table">
@@ -21,8 +23,9 @@ function CorporateTable({corporateDatatw}:customProps) {
           <tbody>
             {corporateDatatw.map((y: any) => (
               <tr
+              key={y.name}
               >
-                <td key={y.name}>{y.name}</td>
+                <td>{y.name}</td>
                 <td key={y.dodomainmain}>{y.domain}</td>
                 <td key={y.mailRestrictions}>{y.mailRestrictions}</td>
               </tr>
