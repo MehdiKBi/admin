@@ -18,9 +18,17 @@ function Corporate() {
       })
       .then((data) => {
         setCorporateData(data.data.slice(0, 8));
-        setCorporateDatatw(data.data.slice(9, 17));
+        setCorporateDatatw(data.data.slice(9, 17));        
       });
   }, []);
+
+  
+
+  useEffect(() => {
+    corporateData.forEach((item: any, index:any , array:any) =>
+      console.log("item :", item)
+    )
+  });
 
   return (
     <div className="Corporate text-center">
