@@ -1,44 +1,35 @@
-import { GET_CORPORATE,corporatesDispatchTypes, ADD_CORPORATE, NEW_CORPORATE } from "../Types/corporateTypes";
+import {
+  GET_CORPORATE,
+  corporatesDispatchTypes,
+  CATCH_ERROR,
+} from "../Types/corporateTypes";
 
-
-
-
-interface defaultState{
-  corporate?: any
-  addCorporate?: any
-  newCorporate?:any
-  
+interface defaultState {
+  corporate?: any;
+  error?: any;
 }
 
-const initialState :defaultState= {
+const initialState: defaultState = {
   corporate: {},
-  addCorporate: {},
-  newCorporate:""
-  
-}
+  error: "",
+};
 
-export const corporateReducer = (
+export const corporatReducer = (
   state: defaultState = initialState,
-  action : corporatesDispatchTypes
+  action: corporatesDispatchTypes
 ): defaultState => {
-
   switch (action.type) {
     case GET_CORPORATE:
       return {
         ...state,
-        corporate:action.payload
-      }
-    case ADD_CORPORATE:
+        corporate: action.payload,
+      };
+    case CATCH_ERROR:
       return {
         ...state,
-        addCorporate:action.payload
-      }
-    case NEW_CORPORATE:
-      return {
-        ...state,
-        newCorporate: action.payload
-      }
+        error: action.payload,
+      };
     default:
-      return state
+      return state;
   }
-}
+};

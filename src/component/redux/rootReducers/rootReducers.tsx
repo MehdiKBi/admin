@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import { corporateReducer } from "../reducers/reducers";
+import { corporatReducer } from "../reducers/reducers";
 
 
 export const rootReducer = combineReducers({
-  corporate: corporateReducer
+  corporate: corporatReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>;

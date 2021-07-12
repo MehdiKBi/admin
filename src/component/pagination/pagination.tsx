@@ -1,15 +1,17 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { BsFillCaretRightFill, BsFillCaretLeftFill } from "react-icons/bs";
 
 
+interface customPorps{
+  corporatestat?:any
+}
 
-function Pagination() {
 
-  // const { id } = useParams()
-  
-  
+
+function Pagination({corporatestat}:customPorps) {
+
 
   return (
     <div className="mt-5 text-end">

@@ -1,23 +1,14 @@
 export const GET_CORPORATE = "GET_CORPORATE";
-export const ADD_CORPORATE = "ADD_CORPORATE";
-export const NEW_CORPORATE = "ADD_CORPORATE";
+export const CATCH_ERROR = "CATCH_ERROR";
 
-export interface corporateSucsses{
+export interface corporateSuccss {
   type: typeof GET_CORPORATE;
-  payload:any
+  payload: any;
 }
 
-export interface addcorporateSucces{
-  type: typeof ADD_CORPORATE;
-  payload:any
+export interface failedAccess {
+  type: typeof CATCH_ERROR;
+  payload: any;
 }
 
-
-export interface createnewCorp{
-  type: typeof NEW_CORPORATE;
-  payload: any
-
-}
-
-export type corporatesDispatchTypes = corporateSucsses | addcorporateSucces |createnewCorp;
-
+export type corporatesDispatchTypes = corporateSuccss | failedAccess;

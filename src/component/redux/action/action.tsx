@@ -1,36 +1,39 @@
 import axios from "axios"
 import { Dispatch } from "redux"
-import { ADD_CORPORATE, corporatesDispatchTypes, GET_CORPORATE } from "../Types/corporateTypes"
-
-
-
-export const corporateAction= (corporate:any) => {
-  return {
-    type:GET_CORPORATE ,
-    payload:corporate
-  }
-
-}
+import { CATCH_ERROR, corporatesDispatchTypes, GET_CORPORATE } from "../Types/corporateTypes";
 
 
 
 
 
-export const newCorporateAction = () => {
-  return {
-    type: ADD_CORPORATE,
-    payload: ""
-  }
-}
-export const getcorporateData = (corporate:any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
-  const response = await axios
-    .get("https://api.corplife.at/v0/corporates?limit=30&skip=0")
-    .catch((err) => {
-      console.log("Err: ", err);
-    });
-  console.log("redux works like a bitch", response);
+export const getcorporateData = (corporate: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
+
+  const fulUrl= "https://api.corplife.at/v0/corporates?limit=30&skip=0"
+  
+try {
+  const response = await axios.get(fulUrl)
+  // console.log(response.data.data);
   dispatch({
-    type: ADD_CORPORATE,
-    payload: response
+    type: GET_CORPORATE,
+    payload: response.data.data
   });
+} catch (e) {
+  console.log("redux Error", e);
+  dispatch({
+    type: CATCH_ERROR,
+    payload: e
+  })
+ }
 };
+
+
+
+
+
+// export const getcorporateData= (corporate:any) => {
+//   return {
+//     type:GET_CORPORATE ,
+//     payload:corporate
+//   }
+// }
+
