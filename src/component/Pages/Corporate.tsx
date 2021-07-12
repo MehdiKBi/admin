@@ -13,21 +13,22 @@ function Corporate(corporatestat:any ) {
   const [corporateDatatw, setCorporateDatatw] = useState([]);
   const dispatch = useDispatch()
   
-  // useEffect(() => {
-  //   fetch("https://api.corplife.at/v0/corporates?limit=30&skip=0")
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setCorporateData(data.data.slice(0, 8));
-  //       setCorporateDatatw(data.data.slice(9, 17));        
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("https://api.corplife.at/v0/corporates?limit=30&skip=0")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setCorporateData(data.data.slice(0, 8));
+        setCorporateDatatw(data.data.slice(9, 17));        
+      });
+  }, []);
 
   useEffect(() => {
     dispatch(getcorporateData(corporatestat))
   }, [])
   
+
 
 
   useEffect(() => {

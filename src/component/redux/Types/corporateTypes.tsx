@@ -19,7 +19,5 @@ export interface createnewCorp{
 
 }
 
-
-
 export type corporatesDispatchTypes = corporateSucsses | addcorporateSucces |createnewCorp;
 

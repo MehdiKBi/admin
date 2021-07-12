@@ -12,12 +12,8 @@ export const corporateAction= (corporate:any) => {
 
 }
 
-export const addCorporateAction = (newCorporate:any) => {
-  return {
-    type: ADD_CORPORATE,
-    payload: newCorporate
-  }
-}
+
+
 
 
 export const newCorporateAction = () => {
@@ -32,7 +28,7 @@ export const getcorporateData = (corporate:any) => async (dispatch: Dispatch<cor
     .catch((err) => {
       console.log("Err: ", err);
     });
-  console.log("redux works like a bitch" , response);
+  console.log("redux works like a bitch", response);
   dispatch({
     type: ADD_CORPORATE,
     payload: response
