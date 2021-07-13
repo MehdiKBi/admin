@@ -6,7 +6,7 @@ import { CATCH_ERROR, corporatesDispatchTypes, GET_CORPORATE } from "../Types/co
 
 
 
-export const getcorporateData = (corporate: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
+export const getcorporateData =  (corporate: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
 
   const fulUrl= "https://api.corplife.at/v0/corporates?limit=30&skip=0"
   
