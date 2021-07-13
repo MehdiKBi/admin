@@ -39,12 +39,12 @@ function Pagination({ corporateList }: customPorps) {
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
-            <button onClick={pageMinus}>
+            <button style={{backgroundColor:"transparent" , borderRadius:"4px"}}  onClick={pageMinus}>
               <BsFillCaretLeftFill />
             </button>
           </li>
           <li className="page-item">
-            <button onClick={pagePlus}>
+            <button style={{backgroundColor:"transparent" , borderRadius:"4px"}}  onClick={pagePlus}>
               <BsFillCaretRightFill />
             </button>
           </li>

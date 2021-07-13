@@ -20,8 +20,6 @@ function Corporate(corporatestat: any) {
  const corporateList = corporatestat.corporatestat.corporate;
   
   
-  
-
   return (
     <div className="Corporate text-center">
       <div>
