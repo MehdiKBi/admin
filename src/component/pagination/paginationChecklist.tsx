@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 
 import { BsFillCaretRightFill, BsFillCaretLeftFill } from "react-icons/bs";
 import { checklistAction } from "../redux/action/checklistAction";
@@ -18,15 +18,10 @@ function PaginationChecklist() {
   const paginateMinus = () => {
     setPage(page-8);
   };
-  console.log(page);
 
   useEffect(() => {
     dispatch(checklistAction(page));
   }, [page]);
-
-
-
-  
 
   return (
     <div className="mt-5 text-end">

@@ -29,11 +29,8 @@ function Pagination({ corporateList }: customPorps) {
     dispatch(getcorporateData(page));
   }, [page]);
 
-  
 
-  console.log("corporate array : => ",corporateList);
   
-
   return (
     <div className="mt-5 text-end">
       <nav aria-label="Page navigation example">
