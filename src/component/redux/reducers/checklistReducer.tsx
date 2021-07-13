@@ -9,7 +9,7 @@ interface defaultState {
   error: any;
 }
 const initialState: defaultState = {
-  checklist: {},
+  checklist: [],
   error: "",
 };
 

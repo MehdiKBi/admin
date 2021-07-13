@@ -13,30 +13,16 @@ interface custonPros {
 
 function CheckList({ checklist }: custonPros) {
   const [checklisteData, setChecklistData] = useState([]);
-  const [checklisteDatatw, setChecklistDatatw] = useState([]);
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   fetch(
-  //     "https://api-dev.corplife.at/v0/corplife/checklists?skip=0&sortBy=name&limit=16"
-  //   )
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       console.log(data.data);
-  //       setChecklistData(data.data.slice(0, 8));
-  //       setChecklistDatatw(data.data.slice(9, 18));
-  //     });
-  // }, []);
+
+;
 
   useEffect(() => {
-    dispatch(checklistAction());
-    const pageOne = checklist.checklist.slice(0, 7)
-    const pageTwo = checklist.checklist.slice(8, 16)
-    setChecklistData(pageOne)
-    setChecklistDatatw(pageTwo)
-    console.log( "checklist" ,checklist.checklist.slice(0,2));
-  }, []);
+    if (checklist && checklist.checklist.length) {
+      setChecklistData(checklist.checklist)
+    }
+  }, [checklist]);
+
 
   return (
     <div>
@@ -44,9 +30,6 @@ function CheckList({ checklist }: custonPros) {
         <Switch>
           <Route exact path="/checklist">
             <ChecklistTable checklisteData={checklisteData} />
-          </Route>
-          <Route path="/p2">
-            <ChecklistTabletw checklisteDatatw={checklisteDatatw} />
           </Route>
         </Switch>
         <PaginationChecklist />

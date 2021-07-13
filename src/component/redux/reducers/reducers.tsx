@@ -10,7 +10,7 @@ interface defaultState {
 }
 
 const initialState: defaultState = {
-  corporate: {},
+  corporate: [],
   error: "",
 };
 

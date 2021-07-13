@@ -1,64 +1,25 @@
-import React, { useEffect, useState } from "react";
 import Pagination from "../pagination/pagination";
 import CorporateTable from "./CorporateTable";
-import CorporateTabletw from "./CorporateTabletw";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-
 import { RootState } from "../redux/rootReducers/rootReducers";
-import axios from "axios";
-import { getcorporateData } from "../redux/action/action";
+import { getcorporateData } from "../redux/action/corporateAction";
+import { useEffect } from "react";
+
+
+
+
 
 function Corporate(corporatestat: any) {
-  const [corporateData, setCorporateData] = useState([]);
-  const [corporateDatatw, setCorporateDatatw] = useState([]);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   fetch("https://api.corplife.at/v0/corporates?limit=30&skip=0")
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setCorporateData(data.data.slice(0, 8));
-  //       setCorporateDatatw(data.data.slice(9, 17));
-  //     });
-  // }, []);
+ useEffect(() => {
+  dispatch(getcorporateData(0))
+ }, []);
 
-  // const fetchData = async () => {
-  //   const fulUrl= "https://api.corplife.at/v0/corporates?limit=30&skip=0"
-  //   const response =  axios
-  //     .get(fulUrl)
-  //     .catch((err) => {
-  //       console.log("Err: ", err);
-  //     });
-  //   console.log(response);
-  //   dispatch(getcorporateData(response))
-  // }
-
-  // useEffect(() => {
-  //   fetchData()
-  // },[])
-
-  useEffect(() => {
-    dispatch(getcorporateData(corporatestat));
-    const toMap = corporatestat.corporatestat.corporate.slice(0, 7);
-    const toMapTwo = corporatestat.corporatestat.corporate.slice(8, 16);
-    setCorporateData(toMap)
-    setCorporateDatatw(toMapTwo)
-  },[]);
-
-
+ const corporateList = corporatestat.corporatestat.corporate;
   
-
-  // useEffect(() => {
-  //   corporateData.forEach((item: any, index: any, array: any) =>
-  //     console.log("item :", item)
-  //   );
-  // }, []);
-
-
-
+  
   
 
   return (
@@ -67,13 +28,10 @@ function Corporate(corporatestat: any) {
         <Router>
           <Switch>
             <Route exact path="/corporate">
-              <CorporateTable corporateData={corporateData} />
-            </Route>
-            <Route exact path="/page2">
-              <CorporateTabletw corporateDatatw={corporateDatatw} />
+              <CorporateTable corporateList={corporateList} />
             </Route>
           </Switch>
-          <Pagination corporatestat={corporatestat} />
+          <Pagination corporateList={corporateList} />
         </Router>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Corporate from "./component/Pages/Corporate";
 import CheckList from "./component/Pages/CheckList";
 import Settings from "./component/Pages/Settings";
+import ErrorPage from "./component/Pages/ErrorPage/Error";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
               </Route>
               <Route exact path="/settings">
                 <Settings />
+              </Route>
+              <Route path="/error">
+                <ErrorPage />
               </Route>
             </div>
           </div>

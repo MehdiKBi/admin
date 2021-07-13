@@ -3,11 +3,15 @@ import { Dispatch } from "redux";
 import { checklistDipatch, ERROR_LIST, GET_CHECKLIST } from "../Types/checklistTypes";
 
 export const checklistAction =
-  () => async (dispatch: Dispatch<checklistDipatch>) => {
+  (skip:number) => async (dispatch: Dispatch<checklistDipatch>) => {
+    const params = {
+      limit: 8,
+      skip:skip
+    };
     const fullUrl =
-      "https://api-dev.corplife.at/v0/corplife/checklists?skip=0&sortBy=name&limit=16";
+      "https://api-dev.corplife.at/v0/corplife/checklists";
     try {
-      const response = await axios.get(fullUrl);
+      const response = await axios.get(fullUrl, {params});
       dispatch({
         type: GET_CHECKLIST,
         payload: response.data.data,
@@ -20,3 +24,6 @@ export const checklistAction =
       })
     }
   };
+
+
+  

@@ -1,10 +1,12 @@
 import React from "react";
 
 interface customProps {
-  checklisteData?:any
+  checklisteData?: any;
 }
 
-function ChecklistTable({checklisteData}: customProps) {
+function ChecklistTable({ checklisteData }: customProps) {
+  console.log(checklisteData);
+
   return (
     <div>
       <div>
@@ -18,10 +20,10 @@ function ChecklistTable({checklisteData}: customProps) {
           </thead>
           <tbody>
             {checklisteData.map((y: any) => (
-              <tr>
-                <td key={y.partner}>{y.partner}</td>
-                <td key={y.offer}>{y.offer}</td>
-                <td key={y.status}>{y.status}</td>
+              <tr key={y._id}>
+                <td>{y.partner}</td>
+                <td>{y.offer}</td>
+                <td>{y.status}</td>
               </tr>
             ))}
           </tbody>

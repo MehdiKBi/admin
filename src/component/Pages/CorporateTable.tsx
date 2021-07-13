@@ -1,10 +1,12 @@
 import React from "react";
 
 interface customProps {
-  corporateData: any;
+  corporateList: any;
 }
 
-function CorporateTable({ corporateData }: customProps) {
+function CorporateTable({ corporateList }: customProps) {
+  console.log("maping", corporateList);
+  
   return (
     <div>
       <table className="table">
@@ -16,11 +18,11 @@ function CorporateTable({ corporateData }: customProps) {
           </tr>
         </thead>
         <tbody>
-          {corporateData.map((y: any) => (
-            <tr>
-              <td key={y.name}>{y.name}</td>
-              <td key={y.dodomainmain}>{y.domain}</td>
-              <td key={y.mailRestrictions}>{y.mailRestrictions}</td>
+          {corporateList.map((y: any) => (
+            <tr key={y._id}>
+              <td>{y.name}</td>
+              <td>{y.domain}</td>
+              <td>{y.mailRestrictions}</td>
             </tr>
           ))}
         </tbody>
