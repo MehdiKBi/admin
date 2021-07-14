@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Dispatch } from "redux";
-import { checklistDipatch, ERROR_LIST, GET_CHECKLIST } from "../Types/checklistTypes";
+import { checklistDipatch, GET_CHECKLIST, GET_CHECKLIST_ERROR } from "../Types/checklistTypes";
 
+
+//GET CHECKLIST DATA
 export const checklistAction =
   (skip:number) => async (dispatch: Dispatch<checklistDipatch>) => {
     const params = {
@@ -19,8 +21,9 @@ export const checklistAction =
     } catch (e) {
       console.log(e);
       dispatch({
-        type: ERROR_LIST,
-        payload : e
+        type: GET_CHECKLIST_ERROR,
+        payload: "get_checklist",
+        loading : true
       })
     }
   };

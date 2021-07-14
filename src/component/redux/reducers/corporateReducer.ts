@@ -1,17 +1,20 @@
 import {
   GET_CORPORATE,
   corporatesDispatchTypes,
-  CATCH_ERROR,
+  GET_CORPORATE_ERROR,
+  CORPORATE_LOADING,
 } from "../Types/corporateTypes";
 
 interface defaultState {
   corporate?: any;
-  error?: any;
+  error?: string;
+  loading: boolean;
 }
 
 const initialState: defaultState = {
   corporate: [],
   error: "",
+  loading: true,
 };
 
 export const corporatReducer = (
@@ -23,11 +26,19 @@ export const corporatReducer = (
       return {
         ...state,
         corporate: action.payload,
+        loading:false
       };
-    case CATCH_ERROR:
+    case GET_CORPORATE_ERROR:
       return {
         ...state,
         error: action.payload,
+        loading:true
+      };
+    case CORPORATE_LOADING:
+      return {
+        ...state,
+        error: action.payload,
+        loading:true
       };
     default:
       return state;

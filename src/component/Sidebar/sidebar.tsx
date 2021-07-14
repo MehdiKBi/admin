@@ -11,7 +11,7 @@ function SideBar() {
   return (
     <div className="sidebar-box">
       <div
-        className="flex-shrink-0 p-3 bg-info text-secondary shadow-lg p-3 mb-5 rounded "
+        className="flex-shrink-0 p-3 bg-primary text-secondary shadow-lg p-3 mb-5 rounded "
         style={{ width: "5em", height: "100vh"}}
       >
         <ul className="list-unstyled ps-0 mt-5">

@@ -1,16 +1,22 @@
 import {
   checklistDipatch,
-  ERROR_LIST,
+
+  CHECKLIST_LOADING,
+
   GET_CHECKLIST,
+  GET_CHECKLIST_ERROR,
 } from "../Types/checklistTypes";
+
 
 interface defaultState {
   checklist?: any;
-  error: any;
+  error: string;
+  loading: boolean;
 }
 const initialState: defaultState = {
   checklist: [],
   error: "",
+  loading: true,
 };
 
 export const checklistReducer = (
@@ -22,11 +28,19 @@ export const checklistReducer = (
       return {
         ...state,
         checklist: action.payload,
+        loading: false,
       };
-    case ERROR_LIST:
+    case GET_CHECKLIST_ERROR:
       return {
         ...state,
         error: action.payload,
+        loading: true,
+      };
+    case CHECKLIST_LOADING:
+      return {
+        ...state,
+        error: action.payload,
+        loading: true,
       };
     default:
       return state;
