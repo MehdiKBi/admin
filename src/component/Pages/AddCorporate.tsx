@@ -45,7 +45,20 @@ function AddCorporate({ corporatestat }: defaultState) {
         <InputFormik
          value={formik.values.name}
          name="name"
-         handleChange={formik.handleChange}
+          handleChange={formik.handleChange}
+          placeholder="name"
+        />
+          <InputFormik
+         value={formik.values.domain}
+         name="domain"
+          handleChange={formik.handleChange}
+          placeholder="domain"
+        />
+           <InputFormik
+         value={formik.values.mail}
+         name="mail"
+          handleChange={formik.handleChange}
+          placeholder="mail"
         />
          
         <button className="btn btn-danger mt-5">ADD CORPORATE</button>
