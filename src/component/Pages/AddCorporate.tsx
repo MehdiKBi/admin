@@ -33,7 +33,6 @@ function AddCorporate({ corporatestat }: defaultState) {
     e.preventDefault();
     // dispatch(addcorporateAction(formik.values))
     console.log(formik.values);
-    
   };
 
 
