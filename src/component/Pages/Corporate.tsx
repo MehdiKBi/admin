@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import { RootState } from "../redux/rootReducers/rootReducers";
 import { getcorporateData } from "../redux/action/corporateAction";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AddCorporate from "./AddCorporate";
+
 
 
 
@@ -18,18 +20,30 @@ function Corporate(corporatestat: any) {
  }, []);
 
  const corporateList = corporatestat.corporatestat.corporate;
+
+  const [create, setCreate] = useState(true)
   
+  const createcorporate = () => {
+    setCreate(false)
+  }
   
   return (
     <div className="Corporate text-center">
       <div>
         <Router>
+          <button onClick={createcorporate} className="btn btn-warning">CREATE NEW CORPORATE</button>
           <Switch>
             <Route exact path="/corporate">
+              {create?
               <CorporateTable corporateList={corporateList} />
+                :
+              <AddCorporate/>
+              }
+              
             </Route>
           </Switch>
           <Pagination corporateList={corporateList} />
+          
         </Router>
       </div>
     </div>

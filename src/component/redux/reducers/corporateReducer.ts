@@ -3,18 +3,21 @@ import {
   corporatesDispatchTypes,
   GET_CORPORATE_ERROR,
   CORPORATE_LOADING,
+  ADD_CORPORATE,
 } from "../Types/corporateTypes";
 
 interface defaultState {
   corporate?: any;
   error?: string;
   loading: boolean;
+  addcorporate?: any
 }
 
 const initialState: defaultState = {
   corporate: [],
   error: "",
   loading: true,
+  addcorporate: []
 };
 
 export const corporatReducer = (
@@ -28,6 +31,13 @@ export const corporatReducer = (
         corporate: action.payload,
         loading:false
       };
+      case ADD_CORPORATE:
+        return {
+          ...state,
+          addcorporate: action.payload,
+          loading: false,
+          error: ""
+        }
     case GET_CORPORATE_ERROR:
       return {
         ...state,
@@ -40,6 +50,7 @@ export const corporatReducer = (
         error: action.payload,
         loading:true
       };
+    
     default:
       return state;
   }

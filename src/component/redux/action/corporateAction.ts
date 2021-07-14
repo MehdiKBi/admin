@@ -4,6 +4,7 @@ import {
   GET_CORPORATE_ERROR,
   corporatesDispatchTypes,
   GET_CORPORATE,
+  ADD_CORPORATE,
 } from "../Types/corporateTypes";
 
 export const getcorporateData =
@@ -24,6 +25,25 @@ export const getcorporateData =
       dispatch({
         type: GET_CORPORATE_ERROR,
         payload: "get-corporate",
+      });
+    }
+  };
+
+//POST NEW CORPORATE
+export const addcorporateAction =
+  (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
+    const addingUrl = "https://api.corplife.at/v0/corporates";
+    try {
+      const response = await axios.post(addingUrl);
+      console.log(response);
+      dispatch({
+        type: ADD_CORPORATE,
+        payload:  "post-corporate",
+      });
+    } catch (e) {
+      dispatch({
+        type: GET_CORPORATE_ERROR,
+        payload: "add_corporate",
       });
     }
   };
