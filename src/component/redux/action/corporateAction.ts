@@ -33,8 +33,9 @@ export const getcorporateData =
 export const addcorporateAction =
   (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     const addingUrl = "https://api.corplife.at/v0/corporates";
+    
     try {
-      const response = await axios.post(addingUrl);
+      const response = await axios.post(addingUrl );
       console.log(response);
       dispatch({
         type: ADD_CORPORATE,

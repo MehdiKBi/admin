@@ -40,7 +40,7 @@ function Corporate(corporatestat: any) {
                   <CorporateTable corporateList={corporateList} />
                 </div>
               ) : (
-                <AddCorporate />
+                <AddCorporate corporatestat={corporatestat} />
               )}
             </Route>
           </Switch>
