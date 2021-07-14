@@ -7,43 +7,44 @@ import { getcorporateData } from "../redux/action/corporateAction";
 import { useEffect, useState } from "react";
 import AddCorporate from "./AddCorporate";
 
-
-
-
-
-
 function Corporate(corporatestat: any) {
   const dispatch = useDispatch();
 
- useEffect(() => {
-  dispatch(getcorporateData(0))
- }, []);
+  useEffect(() => {
+    dispatch(getcorporateData(0));
+  }, []);
 
- const corporateList = corporatestat.corporatestat.corporate;
+  const corporateList = corporatestat.corporatestat.corporate;
 
-  const [create, setCreate] = useState(true)
-  
+  const [create, setCreate] = useState(true);
+
   const createcorporate = () => {
-    setCreate(false)
-  }
-  
+    setCreate(false);
+  };
+
   return (
     <div className="Corporate text-center">
       <div>
         <Router>
-          <button onClick={createcorporate} className="btn btn-warning">CREATE NEW CORPORATE</button>
           <Switch>
             <Route exact path="/corporate">
-              {create?
-              <CorporateTable corporateList={corporateList} />
-                :
-              <AddCorporate/>
-              }
-              
+              {create ? (
+                <div>
+                  <button
+                    style={{ float: "right" }}
+                    onClick={createcorporate}
+                    className="btn btn-warning"
+                  >
+                    CREATE NEW CORPORATE
+                  </button>
+                  <CorporateTable corporateList={corporateList} />
+                </div>
+              ) : (
+                <AddCorporate />
+              )}
             </Route>
           </Switch>
-          <Pagination corporateList={corporateList} />
-          
+          {create && <Pagination corporateList={corporateList} />}
         </Router>
       </div>
     </div>
