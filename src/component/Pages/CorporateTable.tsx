@@ -5,7 +5,7 @@ interface customProps {
 }
 
 function CorporateTable({ corporateList }: customProps) {
-  console.log("maping", corporateList);
+
   
   return (
     <div>
