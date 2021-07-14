@@ -18,7 +18,6 @@ export const errorReducer = (
         ...state,
         error: action.payload,
       };
-
     default:
       return state;
   }
