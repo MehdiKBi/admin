@@ -24,7 +24,7 @@ function App() {
             </div>
           </Route>
           <div className="corporate ">
-            <div className="inner-corporate shadow-lg p-3 mb-5 bg-body rounded">
+            <div className="mt-5">
               <Route path="/corporate">
                 <Corporate />
               </Route>

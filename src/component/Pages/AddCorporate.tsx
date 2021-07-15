@@ -22,18 +22,7 @@ function AddCorporate({ corporatestat }: defaultState) {
       domain: "",
       notiz: "",
       launch: "",
-      // eingereicht: "",
-      // deadline: "",
-      // paket: "",
-      // interneAngebote: "",
-      // blacklist: "",
-      // startguthaben: "",
-      // mailRestrictions: "",
-      // secureCode: "",
-      // secureCodeCheck: "",
-      // sieDu: "",
-      // logo: "",
-      // imageKey:""
+ 
     },
     validationSchema: Yup.object({
       name: Yup.string().required("name is required"),
