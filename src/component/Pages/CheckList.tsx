@@ -6,6 +6,7 @@ import PaginationChecklist from "../pagination/paginationChecklist";
 import { connect, useDispatch } from "react-redux";
 import { checklistAction } from "../redux/action/checklistAction";
 import { RootState } from "../redux/rootReducers/rootReducers";
+import AddChecklist from "./AddChecklist";
 
 interface custonPros {
   checklist?: any;
@@ -14,25 +15,40 @@ interface custonPros {
 function CheckList({ checklist }: custonPros) {
   const [checklisteData, setChecklistData] = useState([]);
   const dispatch = useDispatch();
-
-;
-
   useEffect(() => {
     if (checklist && checklist.checklist.length) {
-      setChecklistData(checklist.checklist)
+      setChecklistData(checklist.checklist);
     }
   }, [checklist]);
 
+  const [toAdd, setToADD] = useState(true);
+
+  const toShowTheAddlist = () => {
+    setToADD(false);
+  };
 
   return (
     <div>
       <Router>
-        <Switch>
-          <Route exact path="/checklist">
-            <ChecklistTable checklisteData={checklisteData} />
-          </Route>
-        </Switch>
-        <PaginationChecklist />
+        {toAdd && (
+          <button
+            onClick={toShowTheAddlist}
+            className="btn btn-warning"
+            style={{ float: "right" }}
+          >
+            CREAT A NEW CHECKLIST
+          </button>
+        )}
+        {toAdd ? (
+          <Switch>
+            <Route exact path="/checklist">
+              <ChecklistTable checklisteData={checklisteData} />
+            </Route>
+          </Switch>
+        ) : (
+          <AddChecklist />
+        )}
+        {toAdd && <PaginationChecklist />}
       </Router>
     </div>
   );
