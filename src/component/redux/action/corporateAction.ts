@@ -10,7 +10,7 @@ import {
 } from "../Types/corporateTypes";
 
 
-
+//GET CORPORATES
 export const getcorporateData =
   (skip: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     const fulUrl = "https://api.corplife.at/v0/corporates";
@@ -76,12 +76,13 @@ export const addcorporateAction =
     }
   };
 
+
+
 //DELETE CORPORATE
 export const deleteCorporateAction =
-  (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
-    const Url = "";
+  (id?: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     try {
-      const response = await axios.post(Url);
+      const response = await axios.delete(`https://api.corplife.at/v0/corporates/${id}`)
       dispatch({
         type: DELETE_CORPORATE,
         payload: "delete_corporate",
@@ -92,6 +93,6 @@ export const deleteCorporateAction =
         type: GET_CORPORATE_ERROR,
         payload: "error",
       });
-      console.log("error", e);
+      console.log("", e);
     }
   };

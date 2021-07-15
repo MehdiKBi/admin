@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteCorporateAction } from "../redux/action/corporateAction";
 import { RootState } from "../redux/rootReducers/rootReducers";
@@ -10,34 +10,24 @@ interface customProps {
 function CorporateTable({ corporateList }: customProps) {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // dispatch(deleteCorporateAction(1));
-    console.log();
-  }, []);
+  // useEffect(() => {
+  //   dispatch(deleteCorporateAction(corporateList));
+  // }, []);
 
-  const idFinder = () => {
-    corporateList.forEach((element: any) => {
-      const idOfTheCorporate = element._id;
-      console.log(idOfTheCorporate);
-      return idOfTheCorporate;
-    });
-  };
 
-  console.log("now" , corporateList);
-  
-  const deletCorporate = (id: any) => {
-    const filterdID = corporateList.filter((item: any) => item._id !== id);
-    console.log(filterdID);
+  console.log("full", corporateList);
+
+
+  const deletCorporate = (id:any) => {
+    const filterdID = corporateList.filter((item: any) => item._id !== id
+    );
+    // dispatch(deleteCorporateAction(filterdID))
     return filterdID;
-    // dispatch(deleteCorporateAction(""));
-    // idFinder()
-    // console.log(corporateList[0]._id);
-    // console.log("deleted");
   };
 
   return (
     <div>
-      <table className="table">
+     {corporateList&& <table className="table">
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -51,13 +41,14 @@ function CorporateTable({ corporateList }: customProps) {
               <td>{y.name}</td>
               <td>{y.domain}</td>
               <td>{y.mailRestrictions}</td>
-              <button onClick={() => deletCorporate(y._id)} className="btn">
+              <td>{y._id}</td>
+              <button onClick={() => deletCorporate(y._id)}>
                 DELETE
               </button>
             </tr>
           ))}
         </tbody>
-      </table>
+      </table>}
     </div>
   );
 }

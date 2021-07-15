@@ -4,11 +4,12 @@ import InputFormik from "./InputFormik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addChecklistAction } from "../redux/action/checklistAction";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 function AddChecklist() {
   const dispatch = useDispatch();
   const history = useHistory()
+  const location = useLocation()
 
   const formik = useFormik<any>({
     initialValues: {
@@ -28,9 +29,11 @@ function AddChecklist() {
 
   const backTomainPage = () => {
     setTimeout(() => {
-      history.goBack()
+      if (location.pathname === "/checklist") {
+        history.goBack();
+      }
     }, 500);
-  }
+  };
 
 
   const handelSubmit = (e: any) => {

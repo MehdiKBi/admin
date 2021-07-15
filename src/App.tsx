@@ -8,6 +8,8 @@ import CheckList from "./component/Pages/CheckList";
 import Settings from "./component/Pages/Settings";
 import ErrorPage from "./component/Pages/ErrorPage/Error";
 
+
+
 function App() {
   return (
     <Router>
@@ -15,7 +17,7 @@ function App() {
         <SideBar />
         <Switch>
           <Route exact path="/login">
-            <div className="login ">
+            <div className="login">
               <div className="inner-login shadow-lg p-3 mb-5 bg-body rounded">
                 <LoginPage />
               </div>
@@ -23,18 +25,12 @@ function App() {
           </Route>
           <div className="corporate ">
             <div className="inner-corporate shadow-lg p-3 mb-5 bg-body rounded">
-              <Route exact path="/corporate">
+              <Route path="/corporate">
                 <Corporate />
               </Route>
-              <Route exact path="/checklist">
-                <CheckList />
-              </Route>
-              <Route exact path="/settings">
-                <Settings />
-              </Route>
-              <Route path="/error">
-                <ErrorPage />
-              </Route>
+              <Route  path="/checklist" component={CheckList}/>
+              <Route  path="/settings" component={Settings}/>
+              <Route path="/error" component={ErrorPage}/>
             </div>
           </div>
         </Switch>

@@ -1,19 +1,31 @@
 import "./LoginPage.css";
-import {useFormik } from "formik";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 function LoginPage() {
-  const formik = useFormik({
+
+
+  const formik = useFormik<any>({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    validationSchema: Yup.object({
+      partner: Yup.string().required("email is required"),
+      offer: Yup.string().required("password is required"),
+    }),
+    onSubmit: () => console.log("DONE!")
   });
+
+
+  const handleSubmit = (e:any) => {
+    e.preventDefault()
+      console.log(formik.values);  
+  }
+
   return (
     <div className="Login-page text-center mt-5">
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={(e)=> handleSubmit(e)}>
         <div className="mb-3">
           <label className="form-label">Email address</label>
           <input

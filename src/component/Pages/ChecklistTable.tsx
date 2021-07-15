@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteChecklistAction } from "../redux/action/checklistAction";
 
 interface customProps {
   checklisteData?: any;
 }
 
+
 function ChecklistTable({ checklisteData }: customProps) {
   console.log(checklisteData);
+  // const dispatch = useDispatch()
+
+  const [newDataAfterDelition, setNewDataAfterDelition] = useState(checklisteData)
+
+
+
+  
+  // const handelDelete = (id:any) => {
+  //   const nChecklistData = checklisteData.filter((item: any) =>
+  //     item._id !== id
+  //   )
+  //   console.log("newArray", nChecklistData);
+  //   setNewDataAfterDelition(nChecklistData)
+  //   return nChecklistData;
+  //   // dispatch(deleteChecklistAction(newChecklistData))
+  //   // console.log(newChecklistData);
+  // }
+
+  const handelDelete = (id: any) => {
+
+      const deit = newDataAfterDelition.filter((i: any) => (
+        i._id !== id
+      ))
+          setNewDataAfterDelition(deit)
+      }
+    
 
   return (
     <div>
@@ -24,7 +53,9 @@ function ChecklistTable({ checklisteData }: customProps) {
                 <td>{y.partner}</td>
                 <td>{y.offer}</td>
                 <td>{y.status}</td>
+                <button onClick={()=>handelDelete(y._id)}>DELETE</button>
               </tr>
+              
             ))}
           </tbody>
         </table>

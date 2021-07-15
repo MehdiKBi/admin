@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import * as Yup from "yup";
 import { addcorporateAction } from "../redux/action/corporateAction";
 import { RootState } from "../redux/rootReducers/rootReducers";
@@ -12,9 +12,9 @@ interface defaultState {
 }
 
 function AddCorporate({ corporatestat }: defaultState) {
-  const dispatch = useDispatch()
-  const history = useHistory()
-
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
 
   const formik = useFormik<any>({
     initialValues: {
@@ -43,53 +43,51 @@ function AddCorporate({ corporatestat }: defaultState) {
     onSubmit: () => console.log("CLICK"),
   });
 
-
   const backTomainPage = () => {
     setTimeout(() => {
-      history.goBack()
+      if (location.pathname === "/corporate") {
+        history.goBack();
+      }
     }, 500);
-  }
-
+  };
 
   const handelSubmit = (e: any) => {
     e.preventDefault();
+    backTomainPage();
     // dispatch(addcorporateAction(formik.values))
     console.log(formik.values);
-    backTomainPage()
   };
 
-
-
   console.log(formik.handleChange);
-    
+
   return (
     <div className="mt-5">
       <form onSubmit={(e) => handelSubmit(e)}>
         <InputFormik
-         value={formik.values.name}
-         name="name"
+          value={formik.values.name}
+          name="name"
           handleChange={formik.handleChange}
           placeholder="name"
         />
-          <InputFormik
-         value={formik.values.domain}
-         name="domain"
+        <InputFormik
+          value={formik.values.domain}
+          name="domain"
           handleChange={formik.handleChange}
           placeholder="domain"
         />
-           <InputFormik
-         value={formik.values.notiz}
-         name="notiz"
+        <InputFormik
+          value={formik.values.notiz}
+          name="notiz"
           handleChange={formik.handleChange}
           placeholder="notiz"
         />
-         <InputFormik
-         value={formik.values.launch}
-         name="launch"
+        <InputFormik
+          value={formik.values.launch}
+          name="launch"
           handleChange={formik.handleChange}
           placeholder="launch"
         />
-          {/* <InputFormik
+        {/* <InputFormik
          value={formik.values.eingereicht}
          name="eingereicht"
           handleChange={formik.handleChange}
@@ -157,8 +155,7 @@ function AddCorporate({ corporatestat }: defaultState) {
           handleChange={formik.handleChange}
           placeholder="imageKey"
         /> */}
-         
-         
+
         <button className="btn btn-danger mt-5">ADD CORPORATE</button>
       </form>
     </div>
