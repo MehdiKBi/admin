@@ -5,6 +5,8 @@ import {
   corporatesDispatchTypes,
   GET_CORPORATE,
   ADD_CORPORATE,
+  DELETE_CORPORATE,
+  UPDATE_CORPORATE,
 } from "../Types/corporateTypes";
 
 export const getcorporateData =
@@ -29,16 +31,40 @@ export const getcorporateData =
     }
   };
 
+
+
+  //UPDATE CORPORATES
+export const updateCorporateAction =
+  (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
+    const Url = "";
+    try {
+      const response = await axios.put(Url);
+      console.log(response);
+      dispatch({
+        type: UPDATE_CORPORATE,
+        payload: "updated_corporate",
+      });
+    } catch (e) {
+      console.log(e);
+      dispatch({
+        type: GET_CORPORATE_ERROR,
+        payload: "err",
+      });
+    }
+  };
+
+
+  
 //POST NEW CORPORATE
 export const addcorporateAction =
   (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     const addingUrl = "https://api.corplife.at/v0/corporates";
     try {
-      const response = await axios.post(addingUrl );
+      const response = await axios.post(addingUrl);
       console.log(response);
       dispatch({
         type: ADD_CORPORATE,
-        payload:  "post-corporate",
+        payload: "post-corporate",
       });
     } catch (e) {
       dispatch({
@@ -48,14 +74,24 @@ export const addcorporateAction =
     }
   };
 
+//DELETE CORPORATE
+export const deleteCorporateReducer =
+  (id: string) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
+    const Url = "";
+    try {
+      const response = await axios.post(Url);
 
+      dispatch({
+        type: DELETE_CORPORATE,
+        payload: "delete_corporate",
+      });
 
-  //DELETE CORPORATE
-// export const deleteCorporateReducer = (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>)
-//   => {
-//   const Url = "";
-//   try {
-//     const response = await axios.post(Url)
-//   }
-
-//   }
+      console.log(response);
+    } catch (e) {
+      dispatch({
+        type: GET_CORPORATE_ERROR,
+        payload: "error",
+      });
+      console.log("error", e);
+    }
+  };

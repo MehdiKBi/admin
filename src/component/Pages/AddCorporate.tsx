@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import React from "react";
 import { connect, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import { addcorporateAction } from "../redux/action/corporateAction";
 import { RootState } from "../redux/rootReducers/rootReducers";
@@ -12,6 +13,7 @@ interface defaultState {
 
 function AddCorporate({ corporatestat }: defaultState) {
   const dispatch = useDispatch()
+  const history = useHistory()
 
 
   const formik = useFormik<any>({
@@ -42,10 +44,19 @@ function AddCorporate({ corporatestat }: defaultState) {
   });
 
 
+  const backTomainPage = () => {
+    setTimeout(() => {
+      history.push("/")
+    }, 1000);
+  }
+
+
   const handelSubmit = (e: any) => {
     e.preventDefault();
     // dispatch(addcorporateAction(formik.values))
     console.log(formik.values);
+    backTomainPage()
+  
   };
 
 
