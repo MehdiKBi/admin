@@ -4,6 +4,7 @@ import {
   GET_CORPORATE_ERROR,
   CORPORATE_LOADING,
   ADD_CORPORATE,
+  DELETE_CORPORATE,
 } from "../Types/corporateTypes";
 
 interface defaultState {
@@ -36,7 +37,6 @@ export const corporatReducer = (
           ...state,
           addcorporate: action.payload,
           loading: false,
-          error: ""
         }
     case GET_CORPORATE_ERROR:
       return {
@@ -50,7 +50,11 @@ export const corporatReducer = (
         error: action.payload,
         loading:true
       };
-    
+    case DELETE_CORPORATE:
+      return {
+        ...state,
+        corporate:action.payload
+      }
     default:
       return state;
   }

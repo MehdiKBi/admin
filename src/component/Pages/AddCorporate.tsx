@@ -18,7 +18,20 @@ function AddCorporate({ corporatestat }: defaultState) {
     initialValues: {
       name: "",
       domain: "",
-      mail: "",
+      notiz: "",
+      launch: "",
+      // eingereicht: "",
+      // deadline: "",
+      // paket: "",
+      // interneAngebote: "",
+      // blacklist: "",
+      // startguthaben: "",
+      // mailRestrictions: "",
+      // secureCode: "",
+      // secureCodeCheck: "",
+      // sieDu: "",
+      // logo: "",
+      // imageKey:""
     },
     validationSchema: Yup.object({
       name: Yup.string().required("name is required"),
@@ -55,11 +68,86 @@ function AddCorporate({ corporatestat }: defaultState) {
           placeholder="domain"
         />
            <InputFormik
-         value={formik.values.mail}
-         name="mail"
+         value={formik.values.notiz}
+         name="notiz"
           handleChange={formik.handleChange}
-          placeholder="mail"
+          placeholder="notiz"
         />
+         <InputFormik
+         value={formik.values.launch}
+         name="launch"
+          handleChange={formik.handleChange}
+          placeholder="launch"
+        />
+          {/* <InputFormik
+         value={formik.values.eingereicht}
+         name="eingereicht"
+          handleChange={formik.handleChange}
+          placeholder="eingereicht"
+        />
+          <InputFormik
+         value={formik.values.deadline}
+         name="deadline"
+          handleChange={formik.handleChange}
+          placeholder="deadline"
+        />
+          <InputFormik
+         value={formik.values.paket}
+         name="paket"
+          handleChange={formik.handleChange}
+          placeholder="paket"
+        />
+          <InputFormik
+         value={formik.values.interneAngebote}
+         name="interneAngebote"
+          handleChange={formik.handleChange}
+          placeholder="interneAngebote"
+        />
+          <InputFormik
+         value={formik.values.blacklist}
+         name="blacklist"
+          handleChange={formik.handleChange}
+          placeholder="blacklist"
+        />
+          <InputFormik
+         value={formik.values.startguthaben}
+         name="startguthaben"
+          handleChange={formik.handleChange}
+          placeholder="startguthaben"
+        />
+          <InputFormik
+         value={formik.values.mailRestrictions}
+         name="mailRestrictions"
+          handleChange={formik.handleChange}
+          placeholder="mailRestrictions"
+        />
+          <InputFormik
+         value={formik.values.secureCode}
+         name="secureCode"
+          handleChange={formik.handleChange}
+          placeholder="secureCode"
+        />
+            <InputFormik
+         value={formik.values.secureCodeCheck}
+         name="secureCodeCheck"
+          handleChange={formik.handleChange}
+          placeholder="secureCodeCheck"
+        />
+         
+         <InputFormik
+         value={formik.values.sieDu}
+         name="sieDu"
+          handleChange={formik.handleChange}
+          placeholder="sieDu"
+        />
+         
+         <InputFormik
+         value={formik.values.imageKey}
+         name="imageKey"
+          handleChange={formik.handleChange}
+          placeholder="imageKey"
+        /> */}
+         
          
         <button className="btn btn-danger mt-5">ADD CORPORATE</button>
       </form>

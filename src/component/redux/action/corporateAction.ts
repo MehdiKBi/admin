@@ -47,3 +47,15 @@ export const addcorporateAction =
       });
     }
   };
+
+
+
+  //DELETE CORPORATE
+// export const deleteCorporateReducer = (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>)
+//   => {
+//   const Url = "";
+//   try {
+//     const response = await axios.post(Url)
+//   }
+
+//   }

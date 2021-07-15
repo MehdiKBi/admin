@@ -2,6 +2,7 @@ export const GET_CORPORATE = "GET_CORPORATE";
 export const GET_CORPORATE_ERROR = "GET_CORPORATE_ERROR";
 export const CORPORATE_LOADING = "CORPORATE_LOADING";
 export const ADD_CORPORATE = "ADD_CORPORATE";
+export const DELETE_CORPORATE = "DELETE_CORPORATE"
 
 
 export interface corporateSuccss {
@@ -24,6 +25,11 @@ export interface corporateError{
   payload: any
 }
 
+export interface deleteCorporate{
+  type: typeof DELETE_CORPORATE;
+  payload: any
+}
+
 
 
 export type corporatesDispatchTypes =
@@ -34,4 +40,6 @@ export type corporatesDispatchTypes =
   corporateError
   |
   addingCorporate
+  |
+  deleteCorporate
   ;
