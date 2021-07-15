@@ -3,8 +3,10 @@ import { Dispatch } from "redux";
 import {
   ADD_CHECKLIST,
   checklistDipatch,
+  DELETE_CHECKLIST,
   GET_CHECKLIST,
   GET_CHECKLIST_ERROR,
+  UPDATE_CHECKLIST,
 } from "../Types/checklistTypes";
 
 //GET CHECKLIST DATA
@@ -31,6 +33,27 @@ export const checklistAction =
     }
   };
 
+
+    // UPDATE CHECKLIST
+    export const updateChecklistAction =
+    (id: any) => async (dispatch: Dispatch<checklistDipatch>) => {
+      const Url = "";
+      try {
+        const response = await axios.put(Url);
+        console.log(response);
+        dispatch({
+          type: UPDATE_CHECKLIST,
+          payload:"update-checklist",
+        });
+      } catch (e) {
+        dispatch({
+          type: GET_CHECKLIST_ERROR,
+          payload: "checklist-error",
+        });
+      }
+    };
+
+
 //ADD CHECKLIST
 export const addChecklistAction =
   (id: any) => async (dispatch: Dispatch<checklistDipatch>) => {
@@ -41,6 +64,25 @@ export const addChecklistAction =
       dispatch({
         type: ADD_CHECKLIST,
         payload:"post-checklist",
+      });
+    } catch (e) {
+      dispatch({
+        type: GET_CHECKLIST_ERROR,
+        payload: "checklist-error",
+      });
+    }
+  };
+
+  //DELETE CHECKLIST
+  export const deleteChecklistAction =
+  (id: any) => async (dispatch: Dispatch<checklistDipatch>) => {
+    const Url = "";
+    try {
+      const response = axios.post(Url);
+      console.log(response);
+      dispatch({
+        type: DELETE_CHECKLIST,
+        payload:"delete-checklist",
       });
     } catch (e) {
       dispatch({

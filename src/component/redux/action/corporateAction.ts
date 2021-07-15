@@ -9,6 +9,8 @@ import {
   UPDATE_CORPORATE,
 } from "../Types/corporateTypes";
 
+
+
 export const getcorporateData =
   (skip: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     const fulUrl = "https://api.corplife.at/v0/corporates";
@@ -54,7 +56,7 @@ export const updateCorporateAction =
   };
 
 
-  
+
 //POST NEW CORPORATE
 export const addcorporateAction =
   (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
@@ -75,17 +77,15 @@ export const addcorporateAction =
   };
 
 //DELETE CORPORATE
-export const deleteCorporateReducer =
-  (id: string) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
+export const deleteCorporateAction =
+  (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     const Url = "";
     try {
       const response = await axios.post(Url);
-
       dispatch({
         type: DELETE_CORPORATE,
         payload: "delete_corporate",
       });
-
       console.log(response);
     } catch (e) {
       dispatch({
