@@ -19,15 +19,20 @@ function CorporateTable({ corporateList }: customProps) {
     corporateList.forEach((element: any) => {
       const idOfTheCorporate = element._id;
       console.log(idOfTheCorporate);
-      return idOfTheCorporate
+      return idOfTheCorporate;
     });
   };
 
-
-  const deletCorporate = () => {
+  console.log("now" , corporateList);
+  
+  const deletCorporate = (id: any) => {
+    const filterdID = corporateList.filter((item: any) => item._id !== id);
+    console.log(filterdID);
+    return filterdID;
     // dispatch(deleteCorporateAction(""));
-    idFinder()
-    console.log("deleted");
+    // idFinder()
+    // console.log(corporateList[0]._id);
+    // console.log("deleted");
   };
 
   return (
@@ -46,10 +51,7 @@ function CorporateTable({ corporateList }: customProps) {
               <td>{y.name}</td>
               <td>{y.domain}</td>
               <td>{y.mailRestrictions}</td>
-              <button
-                onClick={() => deletCorporate()}
-                className="btn btn-danger"
-              >
+              <button onClick={() => deletCorporate(y._id)} className="btn">
                 DELETE
               </button>
             </tr>

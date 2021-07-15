@@ -4,9 +4,11 @@ import InputFormik from "./InputFormik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addChecklistAction } from "../redux/action/checklistAction";
+import { useHistory } from "react-router-dom";
 
 function AddChecklist() {
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const formik = useFormik<any>({
     initialValues: {
@@ -23,10 +25,19 @@ function AddChecklist() {
     onSubmit: () => console.log("CHECKLIST SUBMIT"),
   });
 
+
+  const backTomainPage = () => {
+    setTimeout(() => {
+      history.goBack()
+    }, 500);
+  }
+
+
   const handelSubmit = (e: any) => {
     e.preventDefault();
     // dispatch(addChecklistAction(1))
     console.log(formik.values);
+    backTomainPage()
   };
 
   return (

@@ -46,8 +46,8 @@ function AddCorporate({ corporatestat }: defaultState) {
 
   const backTomainPage = () => {
     setTimeout(() => {
-      history.push("/")
-    }, 1000);
+      history.goBack()
+    }, 500);
   }
 
 
@@ -56,7 +56,6 @@ function AddCorporate({ corporatestat }: defaultState) {
     // dispatch(addcorporateAction(formik.values))
     console.log(formik.values);
     backTomainPage()
-  
   };
 
 
