@@ -2,11 +2,11 @@ import { combineReducers } from "redux";
 import { checklistReducer } from "../reducers/checklistReducer";
 import { errorReducer } from "../reducers/errorReducer";
 import { corporatReducer } from "../reducers/corporateReducer";
-import { searchReducer } from "../reducers/searchCorporateReducer";
+// import { searchReducer } from "../reducers/searchCorporateReducer";
 
 
 export const rootReducer = combineReducers({
-  searchmachine :  searchReducer,
+  // searchmachine :  searchReducer,
   corporate: corporatReducer,
   checklist: checklistReducer,
   error: errorReducer,

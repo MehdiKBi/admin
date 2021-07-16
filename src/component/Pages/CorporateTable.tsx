@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteCorporateAction } from "../redux/action/corporateAction";
 import { RootState } from "../redux/rootReducers/rootReducers";
 
 interface customProps {
@@ -10,18 +9,12 @@ interface customProps {
 function CorporateTable({ corporateList }: customProps) {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(deleteCorporateAction(corporateList));
-  // }, []);
-
-
   console.log("full", corporateList);
 
 
   const deletCorporate = (id:any) => {
     const filterdID = corporateList.filter((item: any) => item._id !== id
     );
-    // dispatch(deleteCorporateAction(filterdID))
     return filterdID;
   };
 

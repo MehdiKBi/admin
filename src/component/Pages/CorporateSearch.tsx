@@ -1,17 +1,15 @@
 import { useFormik } from "formik";
 import { connect, useDispatch } from "react-redux";
-import { searchCorporateAction } from "../redux/action/searchCorporateAction";
+import { searchCorporateAction } from "../redux/action/corporateAction";
 import { RootState } from "../redux/rootReducers/rootReducers";
 
-interface customProps{
-  searchmachine?:any
+interface customProps {
+  corporateList?: any;
 }
 
-
-function CorporateSearch({searchmachine}:customProps) {
+function CorporateSearch({ corporateList }: customProps) {
   const dispatch = useDispatch();
-  console.log( "you see me now", searchmachine);
-  
+  console.log("new searched list", corporateList);
 
   const formik = useFormik<any>({
     initialValues: {
@@ -25,8 +23,6 @@ function CorporateSearch({searchmachine}:customProps) {
     console.log(formik.values.search);
     dispatch(searchCorporateAction(formik.values.search));
   };
-
-
 
   return (
     <div className="input">
@@ -47,11 +43,8 @@ function CorporateSearch({searchmachine}:customProps) {
 
 const MapToStateProps = (state: RootState) => {
   return {
-    searchmachine:state.searchmachine
-  }
+    corporateList: state.corporate,
+  };
+};
 
-}
-
-export default connect(MapToStateProps,null) (CorporateSearch);
-
-
+export default connect(MapToStateProps, null)(CorporateSearch);

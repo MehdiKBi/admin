@@ -6,6 +6,7 @@ import {
   ADD_CORPORATE,
   DELETE_CORPORATE,
   UPDATE_CORPORATE,
+  SEARCH_CORPORATE,
 } from "../Types/corporateTypes";
 
 interface defaultState {
@@ -36,6 +37,11 @@ export const corporatReducer = (
         corporate: action.payload,
         loading:false
       };
+    case SEARCH_CORPORATE:
+      return {
+        ...state,
+        corporate: action.payload
+      }
       case ADD_CORPORATE:
         return {
           ...state,

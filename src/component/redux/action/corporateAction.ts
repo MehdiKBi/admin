@@ -7,6 +7,7 @@ import {
   ADD_CORPORATE,
   DELETE_CORPORATE,
   UPDATE_CORPORATE,
+  SEARCH_CORPORATE,
 } from "../Types/corporateTypes";
 
 
@@ -94,5 +95,27 @@ export const deleteCorporateAction =
         payload: "error",
       });
       console.log("", e);
+    }
+  };
+
+
+
+  //SEARCH CORPORATES
+  export const searchCorporateAction =
+  (search: string) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
+    const params = {
+      search: search,
+      getAll:1
+    };
+    try {
+      const response = await axios.get(
+        "https://api.corplife.at/v0/corporates", {params}
+      );
+      dispatch({
+        type: SEARCH_CORPORATE,
+        payload: response.data,
+      });
+    } catch (e) {
+      console.log("error to search",e);
     }
   };

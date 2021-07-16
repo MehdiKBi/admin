@@ -7,7 +7,7 @@ import { getcorporateData } from "../redux/action/corporateAction";
 import { useEffect, useState } from "react";
 import AddCorporate from "./AddCorporate";
 import CorporateSearch from "./CorporateSearch";
-import { searchCorporateAction } from "../redux/action/searchCorporateAction";
+// import { searchCorporateAction } from "../redux/action/searchCorporateAction";
 
 function Corporate(corporatestat: any) {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ function Corporate(corporatestat: any) {
 
 const MapStateProps = (state: RootState) => {
   return {
-    searchmachin :state.searchmachine,
+    // searchmachin :state.searchmachine,
     corporatestat: state.corporate,
   };
 };
