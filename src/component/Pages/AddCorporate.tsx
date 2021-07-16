@@ -46,7 +46,7 @@ function AddCorporate({ corporatList }: defaultState) {
     } else {
       console.log(formik.values);
       dispatch(addcorporateAction(formik.values))
-      backTomainPage();
+      // backTomainPage();
     }
   };
 
