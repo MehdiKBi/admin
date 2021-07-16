@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Corporate from "./component/Pages/Corporate";
 import CheckList from "./component/Pages/CheckList";
 import Settings from "./component/Pages/Settings";
+import ErrorPage from "./component/Pages/ErrorPage/Error";
+
+
 
 function App() {
   return (
@@ -14,23 +17,18 @@ function App() {
         <SideBar />
         <Switch>
           <Route exact path="/login">
-            <div className="login ">
+            <div className="login">
               <div className="inner-login shadow-lg p-3 mb-5 bg-body rounded">
                 <LoginPage />
               </div>
             </div>
           </Route>
-          <div className="corporate ">
-            <div className="inner-corporate shadow-lg p-3 mb-5 bg-body rounded">
-              <Route exact path="/corporate">
-                <Corporate />
-              </Route>
-              <Route exact path="/checklist">
-                <CheckList />
-              </Route>
-              <Route exact path="/settings">
-                <Settings />
-              </Route>
+          <div className="corporate">
+            <div className="mt-5">
+              <Route path="/corporate" component={Corporate}/>
+              <Route  path="/checklist" component={CheckList}/>
+              <Route  path="/settings" component={Settings}/>
+              <Route path="/error" component={ErrorPage}/>
             </div>
           </div>
         </Switch>

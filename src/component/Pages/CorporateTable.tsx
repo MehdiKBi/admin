@@ -1,15 +1,33 @@
-import React from "react";
-
-
+import { connect, useDispatch } from "react-redux";
+import { RootState } from "../redux/rootReducers/rootReducers";
+import { deleteCorporateAction } from "../redux/action/corporateAction";
+import { useHistory } from "react-router-dom";
 
 interface customProps {
-  corporateData:any
+  corporateList: any;
 }
 
-function CorporateTable({corporateData}:customProps) {
+function CorporateTable({ corporateList }: customProps) {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const deletCorporate = (id: any) => {
+    dispatch(deleteCorporateAction(id));
+    console.log(id);
+    console.log("is modified arr", corporateList);
+    setTimeout(() => {
+      history.go(0);
+    }, 200);
+  };
+
+  const editCorporate = (id: any) => {
+    history.push(`/corporate/${id}`);
+  };
+
   return (
     <div>
-       <table className="table">
+      {corporateList && (
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Name</th>
@@ -18,18 +36,28 @@ function CorporateTable({corporateData}:customProps) {
             </tr>
           </thead>
           <tbody>
-            {corporateData.map((y: any) => (
-              <tr
-              >
-                <td key={y.name}>{y.name}</td>
-                <td key={y.dodomainmain}>{y.domain}</td>
-                <td key={y.mailRestrictions}>{y.mailRestrictions}</td>
-              </tr>
-            ))}
+            {corporateList &&
+              corporateList.map((y: any) => (
+                <tr key={y._id}>
+                  <td>{y.name}</td>
+                  <td>{y.domain}</td>
+                  <td>{y.mailRestrictions}</td>
+                  <td>{y._id}</td>
+                  <button onClick={() => deletCorporate(y._id)}>DELETE</button>
+                  <button onClick={() => editCorporate(y._id)}>EDIT</button>
+                </tr>
+              ))}
           </tbody>
         </table>
+      )}
     </div>
-  )
-  
+  );
 }
-export default CorporateTable
+
+export const MapStateToProps = (state: RootState) => {
+  return {
+    corporate: state.corporate,
+  };
+};
+
+export default connect(MapStateToProps, null)(CorporateTable);
