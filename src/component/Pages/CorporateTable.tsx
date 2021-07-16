@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { RootState } from "../redux/rootReducers/rootReducers";
+import {deleteCorporateAction} from "../redux/action/corporateAction"
 
 interface customProps {
   corporateList: any;
@@ -9,13 +10,17 @@ interface customProps {
 function CorporateTable({ corporateList }: customProps) {
   const dispatch = useDispatch();
 
-  console.log("full", corporateList);
+  console.log("full lost to be modified", corporateList);
 
 
-  const deletCorporate = (id:any) => {
-    const filterdID = corporateList.filter((item: any) => item._id !== id
-    );
-    return filterdID;
+
+
+  const deletCorporate = (id: any) => {
+    dispatch(deleteCorporateAction(id))
+  };
+
+  const editCorporate = (id:any) => {
+    console.log(id);
   };
 
   return (
@@ -38,6 +43,9 @@ function CorporateTable({ corporateList }: customProps) {
               <button onClick={() => deletCorporate(y._id)}>
                 DELETE
               </button>
+              <button onClick={() => editCorporate(y._id)}>
+                EDIT
+              </button>
             </tr>
           ))}
         </tbody>
@@ -51,4 +59,5 @@ export const MapStateToProps = (state: RootState) => {
     corporate: state.corporate,
   };
 };
-export default CorporateTable;
+
+export default connect(MapStateToProps, null)(CorporateTable);

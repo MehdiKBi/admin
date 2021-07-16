@@ -45,7 +45,7 @@ function AddCorporate({ corporatList }: defaultState) {
       alert("INPUT IS EMPTY")
     } else {
       console.log(formik.values);
-      // dispatch(addcorporateAction(formik.values))
+      dispatch(addcorporateAction(formik.values))
       backTomainPage();
     }
   };
