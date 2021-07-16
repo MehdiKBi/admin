@@ -25,10 +25,10 @@ function Corporate(corporatestat: any) {
   };
 
   return (
-    <div className="Corporate text-center">
+    <div className="mt-5">
       <div>
         <Router>
-          <CorporateSearch />
+         {create&& <CorporateSearch />}
           <Switch>
             <Route exact path="/corporate">
               {create ? (
@@ -47,8 +47,9 @@ function Corporate(corporatestat: any) {
               )}
             </Route>
           </Switch>
-          {create && <Pagination corporateList={corporateList} />}
         </Router>
+        {create && <Pagination corporateList={corporateList} />}
+
       </div>
     </div>
   );

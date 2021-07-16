@@ -23,11 +23,9 @@ function App() {
               </div>
             </div>
           </Route>
-          <div className="corporate ">
+          <div className="corporate">
             <div className="mt-5">
-              <Route path="/corporate">
-                <Corporate />
-              </Route>
+              <Route path="/corporate" component={Corporate}/>
               <Route  path="/checklist" component={CheckList}/>
               <Route  path="/settings" component={Settings}/>
               <Route path="/error" component={ErrorPage}/>

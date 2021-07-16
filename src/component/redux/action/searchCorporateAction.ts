@@ -12,7 +12,7 @@ import {
   (search: string) => async (dispatch: Dispatch<searchCorporateDispatch>) => {
     const params = {
       search: search,
-      getAll:1
+      getAll:2
     };
     try {
       const response = await axios.get(
