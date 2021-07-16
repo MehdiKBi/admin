@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import * as Yup from "yup";
@@ -8,10 +8,10 @@ import { RootState } from "../redux/rootReducers/rootReducers";
 import InputFormik from "./InputFormik";
 
 interface defaultState {
-  corporatestat: any;
+  corporatList?: any;
 }
 
-function AddCorporate({ corporatestat }: defaultState) {
+function AddCorporate({ corporatList }: defaultState) {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
@@ -22,7 +22,6 @@ function AddCorporate({ corporatestat }: defaultState) {
       domain: "",
       notiz: "",
       launch: "",
- 
     },
     validationSchema: Yup.object({
       name: Yup.string().required("name is required"),
@@ -35,19 +34,21 @@ function AddCorporate({ corporatestat }: defaultState) {
   const backTomainPage = () => {
     setTimeout(() => {
       if (location.pathname === "/corporate") {
-        history.goBack();
+        history.go(0)
       }
     }, 500);
   };
 
   const handelSubmit = (e: any) => {
     e.preventDefault();
-    backTomainPage();
-    // dispatch(addcorporateAction(formik.values))
-    console.log(formik.values);
+    if (!formik.dirty) {
+      alert("INPUT IS EMPTY")
+    } else {
+      console.log(formik.values);
+      // dispatch(addcorporateAction(formik.values))
+      backTomainPage();
+    }
   };
-
-  console.log(formik.handleChange);
 
   return (
     <div className="mt-5">
@@ -152,7 +153,7 @@ function AddCorporate({ corporatestat }: defaultState) {
 }
 export const mapStateToProps = (state: RootState) => {
   return {
-    corporatestat: state.corporate,
+    corporatList: state.corporate,
   };
 };
 

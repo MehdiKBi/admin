@@ -30,17 +30,20 @@ function AddChecklist() {
   const backTomainPage = () => {
     setTimeout(() => {
       if (location.pathname === "/checklist") {
-        history.goBack();
+        history.go(0)
       }
     }, 500);
   };
 
-
   const handelSubmit = (e: any) => {
     e.preventDefault();
-    // dispatch(addChecklistAction(1))
-    console.log(formik.values);
-    backTomainPage()
+    if (!formik.dirty) {
+      alert("INPUT IS EMPTY")
+    } else {
+      console.log(formik.values);
+      backTomainPage();
+      // dispatch(addChecklistAction(1))
+    }
   };
 
   return (

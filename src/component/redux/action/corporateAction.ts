@@ -10,7 +10,6 @@ import {
   SEARCH_CORPORATE,
 } from "../Types/corporateTypes";
 
-
 //GET CORPORATES
 export const getcorporateData =
   (skip: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
@@ -34,9 +33,7 @@ export const getcorporateData =
     }
   };
 
-
-
-  //UPDATE CORPORATES
+//UPDATE CORPORATES
 export const updateCorporateAction =
   (id: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     const Url = "";
@@ -55,8 +52,6 @@ export const updateCorporateAction =
       });
     }
   };
-
-
 
 //POST NEW CORPORATE
 export const addcorporateAction =
@@ -77,13 +72,13 @@ export const addcorporateAction =
     }
   };
 
-
-
 //DELETE CORPORATE
 export const deleteCorporateAction =
   (id?: any) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     try {
-      const response = await axios.delete(`https://api.corplife.at/v0/corporates/${id}`)
+      const response = await axios.delete(
+        `https://api.corplife.at/v0/corporates/${id}`
+      );
       dispatch({
         type: DELETE_CORPORATE,
         payload: "delete_corporate",
@@ -98,24 +93,23 @@ export const deleteCorporateAction =
     }
   };
 
-
-
-  //SEARCH CORPORATES
-  export const searchCorporateAction =
+//SEARCH CORPORATES
+export const searchCorporateAction =
   (search: string) => async (dispatch: Dispatch<corporatesDispatchTypes>) => {
     const params = {
       search: search,
-      getAll:1
+      getAll: 1,
     };
     try {
       const response = await axios.get(
-        "https://api.corplife.at/v0/corporates", {params}
+        "https://api.corplife.at/v0/corporates",
+        { params }
       );
       dispatch({
         type: SEARCH_CORPORATE,
         payload: response.data,
       });
     } catch (e) {
-      console.log("error to search",e);
+      console.log("error to search", e);
     }
   };

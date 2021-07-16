@@ -12,7 +12,7 @@ function SideBar() {
     <div className="sidebar-box">
       <div
         className="flex-shrink-0 p-3 bg-primary text-secondary shadow-lg p-3 mb-5 rounded "
-        style={{ width: "5em", height: "100vh"}}
+        style={{ width: "5em", height: "100vh" }}
       >
         <ul className="list-unstyled ps-0 mt-5">
           <li className="mb-1 mt-5">
@@ -23,8 +23,8 @@ function SideBar() {
               aria-expanded="true"
             >
               <Link className="router-link" to="/corporate">
-                <motion.div whileHover={{scale: 2.2 }}
-                  animate={{scale:2}}
+                <motion.div whileHover={{ scale: 2.2 }} animate={{ scale: 2 }}
+                  whileTap={{color:"red"}}
                 >
                   <AiFillBank />
                 </motion.div>
@@ -42,8 +42,9 @@ function SideBar() {
               aria-expanded="false"
             >
               <Link className="router-link" to="/checklist">
-                <motion.div whileHover={{ scale: 2.2 }}
-                  animate={{scale:2}}
+                <motion.div whileHover={{ scale: 2.2 }} animate={{ scale: 2 }}
+                  whileTap={{color:"red"}}
+                
                 >
                   <AiOutlineUnorderedList />
                 </motion.div>
@@ -59,8 +60,8 @@ function SideBar() {
               aria-expanded="false"
             >
               <Link className="router-link" to="/settings">
-                <motion.div whileHover={{scale: 2.2 }}
-                  animate={{scale:2}}
+                <motion.div whileHover={{ scale: 2.2 }} animate={{ scale: 2 }}
+                  whileTap={{color:"red"}}
                 >
                   <AiFillSetting />
                 </motion.div>

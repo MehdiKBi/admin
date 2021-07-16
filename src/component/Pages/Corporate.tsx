@@ -43,7 +43,7 @@ function Corporate(corporatestat: any) {
                   <CorporateTable corporateList={corporateList} />
                 </div>
               ) : (
-                <AddCorporate corporatestat={corporatestat} />
+                <AddCorporate/>
               )}
             </Route>
           </Switch>
@@ -57,7 +57,6 @@ function Corporate(corporatestat: any) {
 
 const MapStateProps = (state: RootState) => {
   return {
-    // searchmachin :state.searchmachine,
     corporatestat: state.corporate,
   };
 };
