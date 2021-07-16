@@ -7,6 +7,7 @@ import { getcorporateData } from "../redux/action/corporateAction";
 import { useEffect, useState } from "react";
 import AddCorporate from "./AddCorporate";
 import CorporateSearch from "./CorporateSearch";
+import { searchCorporateAction } from "../redux/action/searchCorporateAction";
 
 function Corporate(corporatestat: any) {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function Corporate(corporatestat: any) {
     <div className="Corporate text-center">
       <div>
         <Router>
-          <CorporateSearch/>
+          <CorporateSearch />
           <Switch>
             <Route exact path="/corporate">
               {create ? (
@@ -55,6 +56,7 @@ function Corporate(corporatestat: any) {
 
 const MapStateProps = (state: RootState) => {
   return {
+    searchmachin :state.searchmachine,
     corporatestat: state.corporate,
   };
 };

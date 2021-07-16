@@ -1,36 +1,29 @@
 import { useFormik } from "formik";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { searchCorporateAction } from "../redux/action/searchCorporateAction";
 import { RootState } from "../redux/rootReducers/rootReducers";
 
-// export interface defaultState{
-//   search:any
+interface customProps{
+  searchmachine?:any
+}
 
-// }
 
-
-function CorporateSearch() {
+function CorporateSearch({searchmachine}:customProps) {
   const dispatch = useDispatch();
+  console.log( "you see me now", searchmachine);
+  
 
   const formik = useFormik<any>({
     initialValues: {
-      search: "",
+      search: [],
     },
     onSubmit: () => console.log("CLICK"),
   });
 
-  // useEffect(() => {
-    
-  // },[]);
-
   const handelSubmit = (e: any) => {
     e.preventDefault();
     console.log(formik.values.search);
-
     dispatch(searchCorporateAction(formik.values.search));
-
-    // dispatch(searchCorporateAction(""))
   };
 
 
@@ -53,13 +46,12 @@ function CorporateSearch() {
 }
 
 const MapToStateProps = (state: RootState) => {
-
   return {
-    search:state.search
+    searchmachine:state.searchmachine
   }
 
 }
 
-export default CorporateSearch;
+export default connect(MapToStateProps,null) (CorporateSearch);
 
 

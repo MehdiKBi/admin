@@ -6,7 +6,7 @@ import { searchReducer } from "../reducers/searchCorporateReducer";
 
 
 export const rootReducer = combineReducers({
-  search :  searchReducer,
+  searchmachine :  searchReducer,
   corporate: corporatReducer,
   checklist: checklistReducer,
   error: errorReducer,

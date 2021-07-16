@@ -1,26 +1,35 @@
 import {
+  ERROR_SEARRCH_CORPORATE,
   searchCorporateDispatch,
-  SEARRCH_CORPORATE,
+  SEARCH_CORPORATE,
 } from "../Types/searchbarCorporateType";
 
 interface defaultState {
-  search: string;
+  search?: any;
+  Searcherror:any
 }
 
 const initialState: defaultState = {
   search: "",
+  Searcherror:""
 };
 
 export const searchReducer = (
   state: defaultState = initialState,
   action: searchCorporateDispatch
 ) => {
-  switch (action.payload) {
-    case SEARRCH_CORPORATE:
+  switch (action.type) {
+    case SEARCH_CORPORATE:
       return {
         ...state,
         search: action.payload,
       };
+    case ERROR_SEARRCH_CORPORATE:
+      return {
+        ...state,
+        Searcherror: action.payload
+
+      }
     default:
       return state;
   }
