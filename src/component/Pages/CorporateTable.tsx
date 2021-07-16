@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { RootState } from "../redux/rootReducers/rootReducers";
 import {deleteCorporateAction} from "../redux/action/corporateAction"
+import { useHistory } from "react-router-dom";
 
 interface customProps {
   corporateList: any;
@@ -9,18 +10,19 @@ interface customProps {
 
 function CorporateTable({ corporateList }: customProps) {
   const dispatch = useDispatch();
-
-  console.log("full lost to be modified", corporateList);
-
-
-
+  const history = useHistory()
 
   const deletCorporate = (id: any) => {
     dispatch(deleteCorporateAction(id))
+    console.log(id);
+    console.log("is modified arr", corporateList);
+    setTimeout(() => {
+    history.go(0)
+    }, 200);
   };
 
   const editCorporate = (id:any) => {
-    console.log(id);
+      history.push(`/corporate/${id}`)
   };
 
   return (
@@ -34,7 +36,9 @@ function CorporateTable({ corporateList }: customProps) {
           </tr>
         </thead>
         <tbody>
-          {corporateList.map((y: any) => (
+          {corporateList
+            &&
+          corporateList.map((y: any) => (
             <tr key={y._id}>
               <td>{y.name}</td>
               <td>{y.domain}</td>
